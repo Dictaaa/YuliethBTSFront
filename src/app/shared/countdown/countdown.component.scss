@@ -1,0 +1,41 @@
+@use '../../../styles/variables' as *;
+
+:host { display: block; }
+
+.cd {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.7rem;
+  max-width: 460px;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.9rem 0.3rem;
+    background: rgba($cream, 0.92);
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba($ink, 0.25);
+  }
+
+  strong {
+    font-family: $font-title;
+    font-size: clamp(1.5rem, 6vw, 2.3rem);
+    line-height: 1;
+    color: $purple-main;
+  }
+
+  span {
+    margin-top: 0.3rem;
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: $ink;
+  }
+}
+
+.cd__done {
+  font-family: $font-title;
+  font-size: 1.5rem;
+}

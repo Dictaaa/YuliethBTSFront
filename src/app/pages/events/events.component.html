@@ -1,0 +1,53 @@
+<section class="container">
+  <header class="page-head">
+    <h1 appReveal="up">Próximos eventos 📅</h1>
+    <p appReveal="up" [revealDelay]="150">
+      Conciertos, lanzamientos y fechas que toda ARMY debe tener anotadas. 💜
+    </p>
+  </header>
+
+  @if (next(); as n) {
+    <article class="big" appReveal="zoom">
+      <span class="big__tag">{{ n.icon || '📅' }} Lo próximo</span>
+      <h2>{{ n.title }}</h2>
+      <p class="big__date">
+        {{ fmt(n.date) }}
+        @if (n.place) { · {{ n.place }} }
+      </p>
+      <app-countdown [target]="n.date" />
+    </article>
+  }
+
+  <div class="chips" appReveal="fade">
+    @for (f of filters; track f.key) {
+      <button [class.on]="filter() === f.key" (click)="filter.set(f.key)">{{ f.label }}</button>
+    }
+  </div>
+
+  <div class="list">
+    @for (e of list(); track e.id; let i = $index) {
+      <article class="ev" appReveal="up" [revealDelay]="(i % 3) * 100">
+        <span class="ev__icon">{{ e.icon || '📅' }}</span>
+        <div class="ev__body">
+          <small>{{ e.type }}</small>
+          <h3>{{ e.title }}</h3>
+          <p>{{ fmt(e.date) }}@if (e.place) { · {{ e.place }} }</p>
+          @if (e.note) { <p class="ev__note">{{ e.note }}</p> }
+          @if (e.link) {
+            <a [href]="e.link" target="_blank" rel="noopener">Ver información oficial →</a>
+          }
+        </div>
+        <div class="ev__days">
+          <strong>{{ days(e.date) }}</strong>
+          <span>días</span>
+        </div>
+      </article>
+    } @empty {
+      <p class="empty">No hay eventos en esta categoría todavía 💜</p>
+    }
+  </div>
+
+  <p class="disclaimer">
+    Las fechas de conciertos y lanzamientos cambian. Confirma siempre en los canales oficiales (Weverse y HYBE).
+  </p>
+</section>

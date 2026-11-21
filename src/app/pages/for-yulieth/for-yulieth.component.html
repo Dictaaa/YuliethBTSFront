@@ -1,0 +1,91 @@
+<section class="love-hero">
+  <div class="hearts" aria-hidden="true">
+    @for (h of hearts; track $index) {
+      <span [style.left.%]="h.left" [style.animation-delay.s]="h.delay" [style.font-size.px]="h.size">💜</span>
+    }
+  </div>
+  <div class="container love-hero__inner">
+    <p class="love-hero__ko" appReveal="fade">사랑해 Yulieth</p>
+    <h1 appReveal="up" [revealDelay]="200">Esta página es para ti 💌</h1>
+    <p appReveal="up" [revealDelay]="400">Porque nadie merece más un rincón bonito en internet que una ARMY como tú.</p>
+  </div>
+</section>
+
+<section class="container block">
+  <app-section-title appReveal="up" title="Lo que llevamos juntos" subtitle="Y lo que falta por vivir" />
+  <div class="counter">
+    <div class="counter__item" appReveal="zoom">
+      <strong>{{ together.months }}</strong><span>meses</span>
+    </div>
+    <div class="counter__item" appReveal="zoom" [revealDelay]="150">
+      <strong>{{ together.days }}</strong><span>días</span>
+    </div>
+    <div class="counter__item" appReveal="zoom" [revealDelay]="300">
+      <strong>{{ together.hours }}</strong><span>horas</span>
+    </div>
+  </div>
+</section>
+
+<section class="container block">
+  <app-section-title appReveal="up" title="Cosas coreanas para ti" subtitle="Toca cada tarjeta para descubrir qué significa" />
+  <div class="flips">
+    @for (c of d.koreanCards; track c.ko; let i = $index) {
+      <button class="flip" [class.flip--on]="isFlipped(i)" (click)="toggleFlip(i)" appReveal="up" [revealDelay]="i * 100">
+        <span class="flip__inner">
+          <span class="flip__front">
+            <b>{{ c.ko }}</b>
+            <small>{{ c.roman }}</small>
+          </span>
+          <span class="flip__back">
+            <b>{{ c.es }}</b>
+            <small>{{ c.note }}</small>
+          </span>
+        </span>
+      </button>
+    }
+  </div>
+</section>
+
+<section class="container block">
+  <app-section-title appReveal="up" title="Nuestros momentos" subtitle="Toca una foto para verla grande" />
+  <div class="gallery">
+    @for (g of d.gallery; track g.src; let i = $index) {
+      <figure class="shot" (click)="open(i)" appReveal="zoom" [revealDelay]="(i % 3) * 120">
+        <span class="shot__ph">💜</span>
+        <img [src]="g.src" [alt]="g.caption" (error)="hideBroken($event)" loading="lazy" />
+        <figcaption>{{ g.caption }}</figcaption>
+      </figure>
+    }
+  </div>
+</section>
+
+<section class="container block">
+  <app-section-title appReveal="up" title="Por qué te amo" />
+  <ul class="reasons">
+    @for (r of d.reasons; track i; let i = $index) {
+      <li appReveal="left" [revealDelay]="i * 120">💜 {{ r }}</li>
+    }
+  </ul>
+</section>
+
+<section class="container block">
+  <article class="letter" appReveal="zoom">
+    <h2>Para ti, mi ARMY favorita</h2>
+    @for (p of d.letter; track $index) {
+      <p>{{ p }}</p>
+    }
+    <p class="letter__sign">{{ d.sign }} 💜</p>
+  </article>
+</section>
+
+@if (current() !== null) {
+  <div class="lightbox" (click)="close()">
+    <button class="lightbox__nav lightbox__nav--prev" (click)="$event.stopPropagation(); prev()" aria-label="Anterior">‹</button>
+    <figure class="lightbox__figure" (click)="$event.stopPropagation()">
+      <img [src]="d.gallery[current()!].src" [alt]="d.gallery[current()!].caption" (error)="hideBroken($event)" />
+      <figcaption>{{ d.gallery[current()!].caption }}</figcaption>
+    </figure>
+    <button class="lightbox__nav lightbox__nav--next" (click)="$event.stopPropagation(); next()" aria-label="Siguiente">›</button>
+    <button class="lightbox__close" (click)="close()" aria-label="Cerrar">✕</button>
+  </div>
+}

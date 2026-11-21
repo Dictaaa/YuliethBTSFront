@@ -1,0 +1,22 @@
+<header class="nav" [class.nav--scrolled]="scrolled()" [class.nav--open]="open()">
+  <div class="container nav__inner">
+    <a routerLink="/" class="nav__logo" (click)="close()">💜 Yulieth <span>♪ BTS</span></a>
+
+    <button class="nav__burger" (click)="toggle()" aria-label="Menú">
+      {{ open() ? '✕' : '☰' }}
+    </button>
+
+    <nav class="nav__links" [class.nav__links--open]="open()">
+      @for (l of links; track l.path) {
+        <a
+          [routerLink]="l.path"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: l.exact }"
+          (click)="close()"
+          >{{ l.label }}</a
+        >
+      }
+      <a routerLink="/para-yulieth" class="nav__love" (click)="close()">Para ti 💌</a>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,118 @@
+@use '../../../styles/variables' as *;
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: background 0.35s, backdrop-filter 0.35s, border-color 0.35s;
+
+  &--scrolled {
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+    background: rgba($cream, 0.55);
+  border-bottom-color: rgba($purple-main, 0.2);
+  }
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+  }
+
+  &__logo {
+    font-family: $font-title;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: $ink;
+
+    span {
+      font-size: 1rem;
+      color: $purple-main;
+    }
+  }
+
+  &__burger {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    color: $ink;
+    cursor: pointer;
+  }
+
+  &__links {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+
+    a {
+      padding: 0.45rem 0.9rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border-radius: 999px;
+      transition: background 0.2s, color 0.2s;
+      color: rgba($ink, 0.85);
+  &:hover { color: $purple-main; background: rgba($cream, 0.5); }
+  &.active { color: $ink; background: rgba($cream, 0.7); }
+
+    }
+  }
+
+  &__links .nav__love {
+    margin-left: 0.5rem;
+    color: $cream;
+    background: linear-gradient(135deg, $purple-main, #9b6df0);
+    box-shadow: 0 6px 18px rgba($purple-main, 0.5);
+
+    &:hover {
+      color: $cream;
+      background: linear-gradient(135deg, #7c4be0, #b69aef);
+    }
+  }
+}
+
+@media (max-width: 920px) {
+  .nav {
+    &--open {
+      background: rgba($ink, 0.92);
+      -webkit-backdrop-filter: blur(16px);
+      backdrop-filter: blur(16px);
+    }
+
+    &__burger {
+      display: block;
+    }
+
+    &__links {
+      position: absolute;
+      top: 72px;
+      left: 0;
+      right: 0;
+      display: none;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.2rem;
+      padding: 0.5rem 1.25rem 1.2rem;
+      background: rgba($ink, 0.96);
+      border-radius: 0 0 $radius $radius;
+
+      &--open {
+        display: flex;
+      }
+
+      a {
+        padding: 0.8rem 1rem;
+      }
+
+      .nav__love {
+        margin: 0.5rem 0 0;
+        text-align: center;
+      }
+    }
+  }
+}

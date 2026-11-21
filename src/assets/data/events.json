@@ -1,0 +1,21 @@
+[
+  {
+    "id": "ev-1",
+    "title": "TODO: nombre del evento oficial",
+    "date": "2027-01-15T20:00:00",
+    "type": "concierto",
+    "place": "TODO: ciudad o Online",
+    "link": "https://weverse.io",
+    "note": "TODO: verifica fecha y entradas en Weverse / HYBE",
+    "icon": "🎤"
+  },
+  {
+    "id": "ev-2",
+    "title": "TODO: próximo lanzamiento",
+    "date": "2027-02-01T13:00:00",
+    "type": "lanzamiento",
+    "place": "Plataformas de streaming",
+    "link": "https://weverse.io",
+    "icon": "💿"
+  }
+]

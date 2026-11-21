@@ -1,0 +1,13 @@
+<article class="mc">
+  <div class="mc__photo">
+    @if (photoOk()) {
+      <img [src]="member.photo" [alt]="member.stage" (error)="photoOk.set(false)" loading="lazy" />
+    } @else {
+      <span>{{ member.stage.charAt(0) }}</span>
+    }
+  </div>
+  <h3>{{ member.stage }}</h3>
+  <p class="mc__real">{{ member.real }}</p>
+  <span class="mc__role">{{ member.role }}</span>
+  <small>🎂 {{ member.birthday }}</small>
+</article>

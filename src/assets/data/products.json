@@ -1,0 +1,31 @@
+[
+  {
+    "id": "p-1",
+    "name": "TODO: Lightstick oficial (ARMY Bomb)",
+    "category": "lightstick",
+    "store": "Weverse Shop",
+    "price": null,
+    "url": "https://shop.weverse.io",
+    "lastChecked": "2026-11-21"
+  },
+  {
+    "id": "p-2",
+    "name": "TODO: Álbum físico",
+    "category": "album",
+    "store": "Weverse Shop",
+    "price": null,
+    "url": "https://shop.weverse.io",
+    "lastChecked": "2026-11-21"
+  },
+  {
+    "id": "p-3",
+    "name": "EJEMPLO (bórralo): producto con descuento",
+    "category": "accesorio",
+    "store": "Tienda de ejemplo",
+    "price": 80000,
+    "originalPrice": 100000,
+    "coupon": "ARMY10",
+    "url": "https://example.com",
+    "lastChecked": "2026-11-21"
+  }
+]

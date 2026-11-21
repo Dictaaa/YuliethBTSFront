@@ -1,0 +1,58 @@
+<section class="container profile">
+  <div class="profile__photo" appReveal="left">
+    @if (photoOk()) {
+      <img [src]="y.photo" [alt]="y.name" (error)="photoOk.set(false)" />
+    } @else {
+      <div class="profile__placeholder">Y</div>
+    }
+  </div>
+
+  <div class="profile__info" appReveal="right" [revealDelay]="150">
+    <span class="profile__badge">ARMY desde hace {{ yearsArmy }} años 💜</span>
+    <h1>{{ y.name }}</h1>
+    <p class="profile__tag">{{ y.tagline }}</p>
+
+    @for (p of y.about; track $index) {
+      <p>{{ p }}</p>
+    }
+  </div>
+</section>
+
+<section class="container facts">
+  @for (f of facts; track f.label; let i = $index) {
+    <div class="fact" appReveal="up" [revealDelay]="i * 120">
+      <span>{{ f.label }}</span>
+      <strong>{{ f.value }}</strong>
+    </div>
+  }
+</section>
+
+<section class="container block">
+  <app-section-title appReveal="up" title="Mi misión" subtitle="Por qué existe esta página" />
+  <p class="mission" appReveal="zoom">{{ y.mission }}</p>
+</section>
+
+<section class="container block">
+  <app-section-title appReveal="up" title="Mis álbumes favoritos" subtitle="Los que más han sonado en mi vida" />
+  <div class="albums">
+    @for (a of y.favoriteAlbums; track a.title; let i = $index) {
+      <article class="album" appReveal="up" [revealDelay]="i * 150">
+        <div class="album__cover">💿</div>
+        <h3>{{ a.title }}</h3>
+        <small>{{ a.year }}</small>
+        <p>{{ a.why }}</p>
+      </article>
+    }
+  </div>
+</section>
+
+@if (socialList.length) {
+  <section class="container block">
+    <app-section-title appReveal="up" title="Encuéntrame" />
+    <div class="socials" appReveal="fade">
+      @for (s of socialList; track s.name) {
+        <a [href]="s.url" target="_blank" rel="noopener">{{ s.name }}</a>
+      }
+    </div>
+  </section>
+}

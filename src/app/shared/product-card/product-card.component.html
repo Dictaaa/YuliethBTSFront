@@ -1,0 +1,33 @@
+<article class="pc">
+  <div class="pc__img">
+    @if (discount() > 0) {
+      <span class="pc__off">-{{ discount() }}%</span>
+    }
+    @if (product.image && imgOk()) {
+      <img [src]="product.image" [alt]="product.name" (error)="imgOk.set(false)" loading="lazy" />
+    } @else {
+      <span class="pc__icon">{{ icon() }}</span>
+    }
+  </div>
+
+  <small class="pc__store">{{ product.store }}</small>
+  <h3>{{ product.name }}</h3>
+
+  <div class="pc__price">
+    @if (product.price) {
+      <strong>{{ money(product.price) }}</strong>
+      @if (discount() > 0) {
+        <s>{{ money(product.originalPrice!) }}</s>
+      }
+    } @else {
+      <strong class="pc__ask">Consultar precio</strong>
+    }
+  </div>
+
+  @if (product.coupon) {
+    <span class="pc__coupon">🎟️ Cupón: <b>{{ product.coupon }}</b></span>
+  }
+
+  <small class="pc__date">Revisado: {{ checked(product.lastChecked) }}</small>
+  <a class="pc__btn" [href]="product.url" target="_blank" rel="noopener">Ver en la tienda →</a>
+</article>

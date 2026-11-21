@@ -1,0 +1,42 @@
+<section class="container">
+  <header class="page-head">
+    <h1 appReveal="up">Tienda y descuentos 🛍️</h1>
+    <p appReveal="up" [revealDelay]="150">
+      Lightsticks, álbumes y merch con enlace directo a la tienda. Los precios están en pesos colombianos y los reviso a mano. 💜
+    </p>
+  </header>
+
+  <div class="chips" appReveal="fade">
+    @for (c of cats; track c.key) {
+      <button [class.on]="cat() === c.key" (click)="cat.set(c.key)">{{ c.label }}</button>
+    }
+  </div>
+
+  <label class="deals" appReveal="fade">
+    <input type="checkbox" [checked]="onlyDeals()" (change)="onlyDeals.set($any($event.target).checked)" />
+    <span>🔥 Mostrar solo productos con descuento</span>
+  </label>
+
+  <div class="grid">
+    @for (p of list(); track p.id; let i = $index) {
+      <app-product-card [product]="p" appReveal="up" [revealDelay]="(i % 4) * 100" />
+    } @empty {
+      <p class="empty">No hay productos con ese filtro todavía 💜</p>
+    }
+  </div>
+
+  <section class="where">
+    <h2 appReveal="up">Dónde buscar</h2>
+    <div class="where__grid">
+      @for (s of stores; track s.name; let i = $index) {
+        <a [href]="s.url" target="_blank" rel="noopener" appReveal="up" [revealDelay]="i * 120">
+          <strong>{{ s.name }}</strong>
+          <small>{{ s.note }}</small>
+        </a>
+      }
+    </div>
+    <p class="tip" appReveal="fade">
+      💡 Tip ARMY: el lightstick oficial se compra en tiendas oficiales. Si el precio parece demasiado bueno, desconfía: hay muchas copias.
+    </p>
+  </section>
+</section>

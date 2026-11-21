@@ -1,0 +1,94 @@
+<section class="hero">
+  <div class="container hero__inner">
+    <div class="hero__text">
+      <span class="hero__badge" appReveal="fade">♪ 보라해 · Borahae 💜</span>
+      <h1 appReveal="up" [revealDelay]="150">Hola, soy <span>{{ yulieth.name }}</span></h1>
+      <p class="hero__sub" appReveal="up" [revealDelay]="300">
+        Te ayudo con todo lo de BTS: quiénes son, su música, su historia, sus eventos y dónde conseguir su merch.
+      </p>
+      <div class="hero__actions" appReveal="up" [revealDelay]="450">
+        <a routerLink="/miembros" class="btn btn--primary">Conocer a BTS</a>
+        <a routerLink="/yulieth" class="btn btn--ghost">Conocer a Yulieth</a>
+      </div>
+    </div>
+
+    <div appReveal="zoom" [revealDelay]="300">
+      <div class="orbs">
+        <div class="orb orb--main">
+          @if (photoOk()) {
+            <img [src]="yulieth.photo" [alt]="yulieth.name" (error)="photoOk.set(false)" />
+          } @else {
+            <span class="orb__letter">Y</span>
+          }
+        </div>
+        <div class="orb orb--pink"><span>💜</span></div>
+        <div class="orb orb--blue"><span>♪</span></div>
+        <div class="orb orb--mini"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="container block">
+  <app-section-title appReveal="up" title="BTS en breve" subtitle="Lo básico para empezar a quererlos" />
+  <p class="intro" appReveal="up">{{ intro }}</p>
+
+  <div class="facts">
+    @for (f of facts; track f.label; let i = $index) {
+      <div class="pill" appReveal="up" [revealDelay]="i * 120">
+        <span class="pill__icon">{{ f.icon }}</span>
+        <strong>{{ f.value }}</strong>
+        <small>{{ f.label }}</small>
+      </div>
+    }
+  </div>
+</section>
+
+<section class="container block">
+  <app-section-title appReveal="up" title="Los 7 integrantes" subtitle="Conócelos uno por uno" />
+  <div class="members">
+    @for (m of members; track m.id; let i = $index) {
+      <a [routerLink]="['/miembros', m.id]" class="mlink" appReveal="up" [revealDelay]="(i % 4) * 120">
+  <app-member-card [member]="m" />
+</a>
+    }
+  </div>
+  <div class="center" appReveal="fade">
+    <a routerLink="/miembros" class="btn btn--ghost">Ver perfiles completos</a>
+  </div>
+</section>
+
+<section class="container block">
+  <app-section-title appReveal="up" title="¿Qué quieres explorar?" subtitle="Todo en un solo lugar" />
+  <div class="tiles">
+    @for (l of links; track l.path; let i = $index) {
+      <a [routerLink]="l.path" class="tile" appReveal="up" [revealDelay]="(i % 3) * 120">
+        <span class="tile__icon">{{ l.icon }}</span>
+        <h3>{{ l.title }}</h3>
+        <p>{{ l.text }}</p>
+      </a>
+    }
+  </div>
+</section>
+
+<section class="container block">
+<section class="container block">
+  <app-section-title appReveal="up" title="Próximos eventos" subtitle="Lo que se viene para las ARMY" />
+  <div class="evs">
+    @for (e of nextEvents(); track e.id; let i = $index) {
+      <a routerLink="/eventos" class="evc" appReveal="up" [revealDelay]="i * 120">
+        <span class="evc__icon">{{ e.icon || '📅' }}</span>
+        <div>
+          <h3>{{ e.title }}</h3>
+          <small>{{ fmt(e.date) }}</small>
+        </div>
+        <strong>{{ days(e.date) }}<em>días</em></strong>
+      </a>
+    }
+  </div>
+  <div class="center" appReveal="fade">
+    <a routerLink="/eventos" class="btn btn--ghost">Ver todos los eventos</a>
+  </div>
+</section>

@@ -1,0 +1,289 @@
+@use '../../../styles/variables' as *;
+
+.block { padding-top: 3.5rem; }
+
+.love-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 5rem 0 3rem;
+  text-align: center;
+  color: $white;
+  background: linear-gradient(135deg, $purple-dark, $purple-main);
+
+  h1 { color: $white; font-size: clamp(2rem, 6vw, 3.4rem); }
+  p { margin-top: 1rem; opacity: 0.9; }
+
+  &__ko {
+    font-size: 1.6rem;
+    letter-spacing: 0.08em;
+    color: $pink-soft;
+  }
+
+  &__inner { position: relative; z-index: 1; }
+}
+
+.hearts {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  span {
+    position: absolute;
+    bottom: -40px;
+    opacity: 0;
+    animation: float-up 9s linear infinite;
+  }
+}
+
+@keyframes float-up {
+  0% { transform: translateY(0) rotate(0); opacity: 0; }
+  15% { opacity: 0.6; }
+  100% { transform: translateY(-420px) rotate(25deg); opacity: 0; }
+}
+
+// Contador
+.counter {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto;
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    padding: 1.6rem 1rem;
+    text-align: center;
+    background: $white;
+    border-radius: $radius;
+    box-shadow: $shadow;
+
+    strong {
+      font-family: $font-title;
+      font-size: clamp(2rem, 6vw, 2.8rem);
+      color: $purple-main;
+    }
+
+    span {
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 0.8rem;
+      color: #6b5b8a;
+    }
+  }
+}
+
+// Tarjetas que se voltean
+.flips {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.2rem;
+}
+
+.flip {
+  height: 190px;
+  padding: 0;
+  background: none;
+  border: none;
+  perspective: 900px;
+  cursor: pointer;
+  font-family: inherit;
+
+  &__inner {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.7s;
+  }
+
+  &--on &__inner { transform: rotateY(180deg); }
+
+  &__front,
+  &__back {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    border-radius: $radius;
+    box-shadow: $shadow;
+    backface-visibility: hidden;
+
+    b { font-size: 1.7rem; }
+    small { font-size: 0.9rem; }
+  }
+
+  &__front {
+    color: $white;
+    background: linear-gradient(135deg, $purple-main, $purple-dark);
+  }
+
+  &__back {
+    color: $purple-dark;
+    background: $white;
+    border: 2px solid $purple-light;
+    transform: rotateY(180deg);
+
+    b { font-size: 1.15rem; }
+  }
+}
+
+// Galería
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.shot {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: $radius;
+  box-shadow: $shadow;
+  cursor: pointer;
+  background: linear-gradient(135deg, $lavender, $purple-light);
+
+  &__ph {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    font-size: 3rem;
+  }
+
+  img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+  }
+
+  &:hover img { transform: scale(1.08); }
+
+  figcaption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 1.5rem 1rem 0.8rem;
+    font-size: 0.85rem;
+    color: $white;
+    background: linear-gradient(transparent, rgba(30, 10, 60, 0.85));
+    transform: translateY(100%);
+    transition: transform 0.3s;
+  }
+
+  &:hover figcaption { transform: none; }
+}
+
+// Razones
+.reasons {
+  max-width: 640px;
+  margin: 0 auto;
+  list-style: none;
+
+  li {
+    margin-bottom: 0.8rem;
+    padding: 1rem 1.3rem;
+    line-height: 1.6;
+    background: $white;
+    border-left: 5px solid $purple-main;
+    border-radius: 12px;
+    box-shadow: $shadow;
+  }
+}
+
+// Carta
+.letter {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 2.2rem 2rem;
+  text-align: center;
+  line-height: 1.85;
+  background: $white;
+  border: 2px dashed $purple-light;
+  border-radius: 22px;
+  box-shadow: $shadow;
+
+  h2 { margin-bottom: 1.2rem; }
+  p { margin-bottom: 1rem; }
+
+  &__sign {
+    margin-top: 1.5rem;
+    font-family: $font-title;
+    font-style: italic;
+    font-size: 1.4rem;
+    color: $purple-main;
+  }
+}
+
+// Visor
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(20, 5, 45, 0.92);
+  animation: fade 0.25s;
+
+  &__figure {
+    max-width: min(90vw, 760px);
+    text-align: center;
+    color: $white;
+
+    img {
+      max-width: 100%;
+      max-height: 78vh;
+      border-radius: 14px;
+    }
+
+    figcaption { margin-top: 0.8rem; }
+  }
+
+  &__nav,
+  &__close {
+    border: none;
+    color: $white;
+    background: rgba(255, 255, 255, 0.15);
+    cursor: pointer;
+    border-radius: 50%;
+
+    &:hover { background: $purple-main; }
+  }
+
+  &__nav { width: 48px; height: 48px; font-size: 2rem; line-height: 1; }
+
+  &__close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 42px;
+    height: 42px;
+    font-size: 1.1rem;
+  }
+}
+
+@keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+
+@media (max-width: 600px) {
+  .lightbox__nav { position: absolute; bottom: 1.2rem; }
+  .lightbox__nav--prev { left: 25%; }
+  .lightbox__nav--next { right: 25%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hearts span { animation: none; }
+  .flip__inner { transition: none; }
+}
