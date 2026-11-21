@@ -28,7 +28,7 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci
-      - run: npx ng build --configuration production --base-href /YuliethBTSFront/
+      - run: npx ng build --configuration production --base-href /
       - name: Soporte para rutas de Angular
         run: cp dist/bts-yulieth/browser/index.html dist/bts-yulieth/browser/404.html
       - uses: actions/upload-pages-artifact@v3
