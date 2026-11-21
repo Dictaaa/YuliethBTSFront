@@ -90,3 +90,95 @@
   .md__photo { max-width: 280px; margin: 0 auto; }
   .md__bio { margin-inline: auto; }
 }
+
+.md__socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  padding: 0;
+  margin: 1.4rem 0 0;
+  list-style: none;
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-weight: 700;
+    color: $ink;
+    background: rgba($cream, 0.6);
+    border: 1px solid rgba($purple-main, 0.3);
+    border-radius: 999px;
+    transition: transform 0.2s, background 0.2s, color 0.2s;
+
+    &:hover { color: $cream; background: $purple-main; transform: translateY(-3px); }
+  }
+}
+
+.md__block { padding-top: 4rem; }
+
+.md__gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.shot {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  padding: 0;
+  overflow: hidden;
+  cursor: pointer;
+  background: radial-gradient(circle at 35% 30%, $pink-soft, $purple-light 50%, $purple-main 95%);
+  border: none;
+  border-radius: $radius;
+  box-shadow: $shadow;
+
+  &:disabled { cursor: default; }
+
+  &__ph { position: absolute; inset: 0; display: grid; place-items: center; font-size: 2.6rem; }
+
+  img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+  }
+
+  &:hover:not(:disabled) img { transform: scale(1.08); }
+}
+
+.md__credit { margin-top: 1rem; font-size: 0.8rem; text-align: center; color: rgba($ink, 0.65); }
+
+.lb {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba($ink, 0.92);
+
+  img { max-width: min(86vw, 720px); max-height: 85vh; border-radius: 14px; }
+
+  &__nav, &__x {
+    color: $cream;
+    cursor: pointer;
+    background: rgba($cream, 0.15);
+    border: none;
+    border-radius: 50%;
+
+    &:hover { background: $purple-main; }
+  }
+
+  &__nav { width: 46px; height: 46px; font-size: 2rem; line-height: 1; }
+  &__x { position: absolute; top: 1rem; right: 1rem; width: 40px; height: 40px; }
+}
+
+@media (max-width: 600px) {
+  .lb__nav { position: absolute; bottom: 1.2rem; &:first-child { left: 25%; } &:nth-child(3) { right: 25%; } }
+}

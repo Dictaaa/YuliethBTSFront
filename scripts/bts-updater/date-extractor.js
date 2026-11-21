@@ -30,3 +30,27 @@ export function extractEventDate(text, now = new Date()) {
   dates.sort((a, b) => a - b);
   return dates[0].toISOString().slice(0, 10);
 }
+
+/** Fechas sin año: asume la próxima ocurrencia (máx. 12 meses). Solo para candidatos "por confirmar" */
+export function extractLooseDate(text, now = new Date()) {
+  const res = [
+    { re: new RegExp(`\\b(\\d{1,2}) de (${MN})\\b`, 'gi'), pick: (m) => [MONTHS[m[2].toLowerCase()], m[1]] },
+    { re: new RegExp(`\\b(${MN}) (\\d{1,2})(?:st|nd|rd|th)?\\b`, 'gi'), pick: (m) => [MONTHS[m[1].toLowerCase()], m[2]] },
+    { re: new RegExp(`\\b(\\d{1,2})(?:st|nd|rd|th)? (${MN})\\b`, 'gi'), pick: (m) => [MONTHS[m[2].toLowerCase()], m[1]] },
+  ];
+  const limit = new Date(now); limit.setFullYear(limit.getFullYear() + 1);
+  const dates = [];
+
+  for (const { re, pick } of res) {
+    for (const m of text.matchAll(re)) {
+      const [mo, d] = pick(m).map(Number);
+      let dt = new Date(Date.UTC(now.getUTCFullYear(), mo - 1, d));
+      if (dt.getUTCMonth() !== mo - 1) continue;
+      if (dt < now) dt = new Date(Date.UTC(now.getUTCFullYear() + 1, mo - 1, d));
+      if (dt <= limit) dates.push(dt);
+    }
+  }
+  if (!dates.length) return null;
+  dates.sort((a, b) => a - b);
+  return dates[0].toISOString().slice(0, 10);
+}

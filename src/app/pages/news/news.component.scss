@@ -1,0 +1,49 @@
+@use '../../../styles/variables' as *;
+
+.chips--small { margin-top: -0.8rem; button { padding: 0.35rem 0.9rem; font-size: 0.85rem; } }
+
+.only {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-bottom: 2rem;
+  font-weight: 700;
+  cursor: pointer;
+
+  input { width: 20px; height: 20px; accent-color: $purple-main; }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.2rem;
+}
+
+.empty { grid-column: 1 / -1; text-align: center; color: rgba($ink, 0.75); }
+
+.more {
+  margin-top: 2rem;
+  text-align: center;
+
+  button {
+    padding: 0.8rem 1.8rem;
+    font: inherit;
+    font-weight: 700;
+    color: $cream;
+    cursor: pointer;
+    background: $purple-main;
+    border: none;
+    border-radius: 999px;
+    transition: transform 0.2s, background 0.2s;
+
+    &:hover { transform: translateY(-3px); background: #3b1d78; }
+  }
+}
+
+.disclaimer {
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  text-align: center;
+  color: rgba($ink, 0.75);
+}

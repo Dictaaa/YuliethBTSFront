@@ -18,13 +18,13 @@ export const GROUP_FACTS = [
 ];
 
 export const MEMBERS: Member[] = [
-  { id: 'rm', stage: 'RM', real: 'Kim Namjoon', role: 'Líder · Rapero', birthday: '12 sep 1994', photo: 'assets/img/members/rm.jpg' },
-  { id: 'jin', stage: 'Jin', real: 'Kim Seokjin', role: 'Vocalista', birthday: '4 dic 1992', photo: 'assets/img/members/jin.jpg' },
-  { id: 'suga', stage: 'Suga', real: 'Min Yoongi', role: 'Rapero · Productor', birthday: '9 mar 1993', photo: 'assets/img/members/suga.jpg' },
-  { id: 'jhope', stage: 'J-Hope', real: 'Jung Hoseok', role: 'Rapero · Bailarín', birthday: '18 feb 1994', photo: 'assets/img/members/jhope.jpg' },
-  { id: 'jimin', stage: 'Jimin', real: 'Park Jimin', role: 'Vocalista · Bailarín', birthday: '13 oct 1995', photo: 'assets/img/members/jimin.jpg' },
-  { id: 'v', stage: 'V', real: 'Kim Taehyung', role: 'Vocalista', birthday: '30 dic 1995', photo: 'assets/img/members/v.jpg' },
-  { id: 'jungkook', stage: 'Jung Kook', real: 'Jeon Jungkook', role: 'Vocalista principal · Maknae', birthday: '1 sep 1997', photo: 'assets/img/members/jungkook.jpg' },
+  { id: 'rm', stage: 'RM', real: 'Kim Namjoon', role: 'Líder · Rapero', birthday: '12 sep 1994', photo: 'https://assets.teenvogue.com/photos/5db855b883e32700089e9db9/16:9/w_2560%2Cc_limit/GettyImages-1140670826.jpg' },
+  { id: 'jin', stage: 'Jin', real: 'Kim Seokjin', role: 'Vocalista', birthday: '4 dic 1992', photo: 'https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcTD5PJ16OO9X8R22qfhIP25u9u0UbLIw7q4ejWpeHTDI56AtHqDlsiVLNXZN8ySHXyRp1QDwaebZSeVbh4' },
+  { id: 'suga', stage: 'Suga', real: 'Min Yoongi', role: 'Rapero · Productor', birthday: '9 mar 1993', photo: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Suga_for_Valentino_and_Marie_Claire_Korea_06.jpg/960px-Suga_for_Valentino_and_Marie_Claire_Korea_06.jpg?utm_source=es.wikipedia.org&utm_campaign=index&utm_content=thumbnail' },
+  { id: 'jhope', stage: 'J-Hope', real: 'Jung Hoseok', role: 'Rapero · Bailarín', birthday: '18 feb 1994', photo: 'https://upload.wikimedia.org/wikipedia/commons/6/6e/J-Hope_at_the_2022_Fact_Music_Awards_on_October_8%2C_2022_%28cropped%29.jpg?utm_source=es.wikipedia.org&utm_campaign=index&utm_content=original' },
+  { id: 'jimin', stage: 'Jimin', real: 'Park Jimin', role: 'Vocalista · Bailarín', birthday: '13 oct 1995', photo: 'https://upload.wikimedia.org/wikipedia/commons/3/33/Jimin_on_the_way_to_SBS_Radio%2C_31_March_2023_%282%29.jpg?utm_source=es.wikipedia.org&utm_campaign=index&utm_content=original' },
+  { id: 'v', stage: 'V', real: 'Kim Taehyung', role: 'Vocalista', birthday: '30 dic 1995', photo: 'https://upload.wikimedia.org/wikipedia/commons/d/d4/BTS%27s_V_20251004_04.jpg?utm_source=es.wikipedia.org&utm_campaign=index&utm_content=original' },
+  { id: 'jungkook', stage: 'Jung Kook', real: 'Jeon Jungkook', role: 'Vocalista principal · Maknae', birthday: '1 sep 1997', photo: 'https://upload.wikimedia.org/wikipedia/commons/f/f6/Jung_Kook_of_BTS%2C_February_12%2C_2026_%281%29.png?utm_source=es.wikipedia.org&utm_campaign=index&utm_content=original' },
 ];
 
 export const MARQUEE_ITEMS = ['BTS', '♪', 'ARMY', '💜', '보라해', '♫', 'Borahae', '💜', '방탄소년단', '♬'];

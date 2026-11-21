@@ -1,0 +1,43 @@
+<section class="container">
+  <header class="page-head">
+    <h1 appReveal="up">Noticias de BTS 📰</h1>
+    <p appReveal="up" [revealDelay]="150">
+      Se actualiza sola todos los días con videos de los canales oficiales y notas de medios. Cada tarjeta lleva al original. 💜
+    </p>
+  </header>
+
+  <div class="chips" appReveal="fade">
+    @for (c of cats; track c.key) {
+      <button [class.on]="cat() === c.key" (click)="setCat(c.key)">{{ c.label }}</button>
+    }
+  </div>
+
+  <div class="chips chips--small" appReveal="fade">
+    @for (m of members; track m) {
+      <button [class.on]="member() === m" (click)="setMember(m)">{{ m }}</button>
+    }
+  </div>
+
+  <label class="only" appReveal="fade">
+    <input type="checkbox" [checked]="onlyOfficial()" (change)="setOfficial($any($event.target).checked)" />
+    <span>✔ Solo fuentes oficiales</span>
+  </label>
+
+  <div class="grid">
+    @for (n of list(); track n.id; let i = $index) {
+      <app-news-card [item]="n" appReveal="up" [revealDelay]="(i % 3) * 100" />
+    } @empty {
+      <p class="empty">No hay noticias con ese filtro todavía 💜</p>
+    }
+  </div>
+
+  @if (filtered().length > list().length) {
+    <div class="more">
+      <button (click)="more()">Ver más ({{ filtered().length - list().length }})</button>
+    </div>
+  }
+
+  <p class="disclaimer">
+    Las notas "Según medios" son titulares de terceros y pueden no estar confirmadas. Para fechas y entradas, confirma siempre en Weverse y HYBE.
+  </p>
+</section>

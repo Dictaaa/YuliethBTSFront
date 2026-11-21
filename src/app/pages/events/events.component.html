@@ -47,6 +47,32 @@
     }
   </div>
 
+  @if (concertNews().length) {
+  <section class="cnews">
+    <h2 appReveal="up">🎤 Lo último sobre giras y conciertos</h2>
+    <p appReveal="up">Titulares recientes. Las fechas exactas se confirman en Weverse y HYBE.</p>
+    <div class="cnews__grid">
+      @for (n of concertNews(); track n.id; let i = $index) {
+        <app-news-card [item]="n" appReveal="up" [revealDelay]="(i % 3) * 100" />
+      }
+    </div>
+  </section>
+}
+
+  @if (pending().length) {
+  <section class="pending" appReveal="up">
+    <h2>⚠️ Posibles fechas por confirmar</h2>
+    <p>Detectadas en medios. Todavía no están verificadas: confirma en Weverse o HYBE antes de planear.</p>
+    @for (p of pending(); track p.id) {
+      <a [href]="p.sourceUrl" target="_blank" rel="noopener noreferrer">
+        <strong>{{ short(p.eventDate!) }}</strong>
+        <span>{{ p.title }}</span>
+        <small>{{ p.source }}</small>
+      </a>
+    }
+  </section>
+}
+
   <p class="disclaimer">
     Las fechas de conciertos y lanzamientos cambian. Confirma siempre en los canales oficiales (Weverse y HYBE).
   </p>

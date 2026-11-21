@@ -4,7 +4,7 @@ export const FOR_YULIETH = {
 
   koreanCards: [
     { ko: '사랑해', roman: 'Saranghae', es: 'Te amo', note: 'Lo que siento cada día por ti.' },
-    { ko: '보라해', roman: 'Borahae', es: 'Te amo hasta el final (clave ARMY)', note: 'Morado: confiar y amar por mucho tiempo.' },
+    { ko: '보라해', roman: 'Borahae', es: 'Te amo hasta el final', note: 'Morado: confiar y amar por mucho tiempo.' },
     { ko: '보고 싶어', roman: 'Bogosipeo', es: 'Te extraño', note: 'Hasta cuando estás cerquita.' },
     { ko: '고마워', roman: 'Gomawo', es: 'Gracias', note: 'Por ser como eres.' },
     { ko: '내 사랑', roman: 'Nae sarang', es: 'Mi amor', note: 'Así te llamo en mi corazón.' },
@@ -22,16 +22,16 @@ export const FOR_YULIETH = {
   ],
 
   reasons: [
-    'TODO: Por cómo te ríes cuando suena tu canción favorita.',
-    'TODO: Por lo dedicada que eres con lo que amas.',
-    'TODO: Por cómo me haces sentir en casa.',
-    'TODO: Por tu manera de cuidar a los demás.',
+    'Por cómo te ríes cuando suena tu canción favorita.',
+    'Por lo dedicada que eres con lo que amas.',
+    'Por cómo me haces sentir.',
+    'Por tu manera de ser.',
   ],
 
   letter: [
-    'Yulieth, hice esta página porque quería que tuvieras un lugar tuyo, bonito, como tú, donde todas las ARMY vean lo increíble que eres.',
-    'TODO: escribe aquí lo que de verdad le quieres decir, con tus palabras.',
-    'Gracias por existir en mi vida. Te amo mucho, nunca lo olvides.',
+    'Hice esta página porque quería que tuvieras un lugar tuyo, bonito, como tú, donde todas las ARMY vean lo increíble que eres.',
+    'Quiero que sepas que eres una personita muy especial para mí. Me encanta verte feliz, compartir momentos contigo y tener la suerte de que estes a mi lado.',
+    'Gracias por existir en mi vida. Te amo mucho mi pastelito 💜, nunca lo olvides.',
   ],
-  sign: 'Att: tu tesoro',
+  sign: 'Att: tu tesorito',
 };

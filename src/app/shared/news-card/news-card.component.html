@@ -1,0 +1,27 @@
+<a class="nc" [href]="item.sourceUrl" target="_blank" rel="noopener noreferrer">
+  <div class="nc__top" [class.nc__top--thumb]="thumb() && imgOk()">
+    @if (thumb() && imgOk()) {
+      <img [src]="thumb()" [alt]="item.title" (error)="imgOk.set(false)" loading="lazy" />
+      <span class="nc__play">▶</span>
+    } @else {
+      <span class="nc__icon">{{ label().slice(0, 2) }}</span>
+    }
+    <span class="nc__badge" [class.nc__badge--off]="official()">
+      {{ official() ? '✔ Oficial' : 'Según medios' }}
+    </span>
+  </div>
+
+  <div class="nc__body">
+    <small>{{ label() }} · {{ date() }}</small>
+    <h3>{{ item.title }}</h3>
+    @if (item.description && item.category !== 'video') {
+      <p>{{ item.description }}</p>
+    }
+    <div class="nc__foot">
+      <span class="nc__src">{{ item.source }}</span>
+      @for (m of item.relatedMembers.slice(0, 3); track m) {
+        <b>{{ m }}</b>
+      }
+    </div>
+  </div>
+</a>

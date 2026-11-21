@@ -355,3 +355,9 @@
     em { font-family: $font-body; font-size: 0.7rem; font-style: normal; font-weight: 800; text-transform: uppercase; }
   }
 }
+
+.news {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.2rem;
+}

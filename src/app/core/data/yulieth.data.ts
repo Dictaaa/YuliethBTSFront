@@ -44,6 +44,7 @@ export const QUICK_LINKS = [
   { icon: '🎵', title: 'Música', text: 'Álbumes y canciones', path: '/musica' },
   { icon: '🕰️', title: 'Cronología', text: 'La historia desde 2013', path: '/cronologia' },
   { icon: '📅', title: 'Eventos', text: 'Próximas fechas', path: '/eventos' },
+  { icon: '📰', title: 'Noticias', text: 'Lo último, cada día', path: '/noticias' },
   { icon: '🛍️', title: 'Tienda', text: 'Merch y descuentos', path: '/tienda' },
-  { icon: '✨', title: 'Sobre Yulieth', text: 'Mi portafolio ARMY', path: '/yulieth' },
+  //{ icon: '✨', title: 'Sobre Yulieth', text: 'Mi portafolio ARMY', path: '/yulieth' },
 ];

@@ -18,8 +18,9 @@ export class NavbarComponent {
     { path: '/musica', label: 'Música', exact: false },
     { path: '/cronologia', label: 'Cronología', exact: false },
     { path: '/eventos', label: 'Eventos', exact: false },
+        { path: '/noticias', label: 'Noticias', exact: false },
     { path: '/tienda', label: 'Tienda', exact: false },
-    { path: '/yulieth', label: 'Yulieth', exact: false },
+    //{ path: '/yulieth', label: 'Yulieth', exact: false },
   ];
 
   constructor() {

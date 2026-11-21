@@ -1,3 +1,8 @@
+export interface Track {
+  name: string;
+  preview?: string;
+}
+
 export interface Album {
   id: string;
   title: string;
@@ -5,6 +10,9 @@ export interface Album {
   type: 'grupo' | 'solo';
   artist: string;
   songs: string[];
+  cover?: string;
+  link?: string;
+  tracks?: Track[];
 }
 
 export const ALBUMS: Album[] = [

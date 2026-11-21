@@ -16,6 +16,8 @@ jobs:
         with:
           node-version: 20
       - run: node scripts/bts-updater/index.js
+      - run: node scripts/bts-updater/update-music.js
+        continue-on-error: true
       - name: Guardar cambios
         run: |
           git config user.name "Dictaaa"

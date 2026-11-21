@@ -2,7 +2,7 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import { SOURCES } from './sources.js';
 import { readFeed } from './rss-reader.js';
 import { isBtsRelated, categoryOf, membersOf } from './classifier.js';
-import { extractEventDate } from './date-extractor.js';
+import { extractEventDate, extractLooseDate } from './date-extractor.js';
 import { isValid, loadJson, makeId, merge } from './validator.js';
 
 const OUT = 'src/assets/data/bts';
@@ -28,7 +28,7 @@ for (const src of SOURCES) {
         category: src.official && category === 'news' ? 'video' : category,
         relatedMembers: membersOf(text),
         publishedAt,
-        eventDate: category === 'concert' ? extractEventDate(text) : null,
+        eventDate: category === 'concert' ? (extractEventDate(text) ?? extractLooseDate(text)) : null,
         status: src.official ? 'official' : 'reported',
         source: it.origin || src.name,
         sourceUrl: it.link,

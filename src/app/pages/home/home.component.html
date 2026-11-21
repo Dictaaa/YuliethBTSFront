@@ -4,7 +4,8 @@
       <span class="hero__badge" appReveal="fade">♪ 보라해 · Borahae 💜</span>
       <h1 appReveal="up" [revealDelay]="150">Hola, soy <span>{{ yulieth.name }}</span></h1>
       <p class="hero__sub" appReveal="up" [revealDelay]="300">
-        Te ayudo con todo lo de BTS: quiénes son, su música, su historia, sus eventos y dónde conseguir su merch.
+        Un rinconcito para compartir mi amor por BTS. Aquí encontrarás todo sobre ellos: su música, sus historias, sus novedades, próximos eventos y merch.
+        ¡Porque ser ARMY es mucho más bonito cuando compartimos la pasión por los siete! 💜
       </p>
       <div class="hero__actions" appReveal="up" [revealDelay]="450">
         <a routerLink="/miembros" class="btn btn--primary">Conocer a BTS</a>
@@ -57,6 +58,18 @@
   </div>
   <div class="center" appReveal="fade">
     <a routerLink="/miembros" class="btn btn--ghost">Ver perfiles completos</a>
+  </div>
+</section>
+
+<section class="container block">
+  <app-section-title appReveal="up" title="Lo último de BTS" subtitle="Se actualiza sola cada día" />
+  <div class="news">
+    @for (n of latestNews(); track n.id; let i = $index) {
+      <app-news-card [item]="n" appReveal="up" [revealDelay]="(i % 3) * 120" />
+    }
+  </div>
+  <div class="center" appReveal="fade">
+    <a routerLink="/noticias" class="btn btn--ghost">Ver todas las noticias</a>
   </div>
 </section>
 

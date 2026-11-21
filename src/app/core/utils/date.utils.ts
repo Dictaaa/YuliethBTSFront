@@ -14,3 +14,12 @@ export function daysLeft(iso: string): number {
   target.setHours(0, 0, 0, 0);
   return Math.max(0, Math.round((target.getTime() - today.getTime()) / 86_400_000));
 }
+
+/** Para fechas AAAA-MM-DD sin desfase de zona horaria */
+export function fmtShort(ymd: string): string {
+  return new Date(ymd + 'T12:00:00').toLocaleDateString('es-CO', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+  });
+}

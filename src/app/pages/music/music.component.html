@@ -1,1 +1,82 @@
-<p>music works!</p>
+<section class="container">
+  <header class="page-head">
+    <h1 appReveal="up">Música de BTS 🎵</h1>
+    <p appReveal="up" [revealDelay]="150">
+      Toca un álbum para escuchar un adelanto de sus canciones. Se actualiza solo con nuevos lanzamientos. 💜
+    </p>
+  </header>
+
+  <div class="chips" appReveal="fade">
+    @for (f of filters; track f.key) {
+      <button [class.on]="filter() === f.key" (click)="filter.set(f.key)">{{ f.label }}</button>
+    }
+  </div>
+
+  <div class="albums">
+    @for (a of list(); track a.id; let i = $index) {
+      <button class="album" (click)="open(a)" appReveal="up" [revealDelay]="(i % 3) * 100">
+        <span class="album__cover">
+          <span>💿</span>
+          @if (a.cover) {
+            <img [src]="a.cover" [alt]="a.title" (error)="hide($event)" loading="lazy" />
+          } @else {
+            <img [src]="'assets/img/albums/' + a.id + '.jpg'" [alt]="a.title" (error)="hide($event)" loading="lazy" />
+          }
+        </span>
+        <small>{{ a.year }} · {{ a.artist }}</small>
+        <h3>{{ a.title }}</h3>
+      </button>
+    }
+  </div>
+
+  <p class="credit">Vistas previas y portadas cortesía de Apple Music.</p>
+</section>
+
+@if (selected(); as a) {
+  <div class="modal" (click)="close()">
+    <div class="modal__box" (click)="$event.stopPropagation()" role="dialog" aria-modal="true">
+      <button class="modal__x" (click)="close()" aria-label="Cerrar">✕</button>
+
+      <div class="modal__head">
+        <span class="modal__cover">
+          💿
+          @if (a.cover) { <img [src]="a.cover" [alt]="a.title" (error)="hide($event)" /> }
+        </span>
+        <div>
+          <small>{{ a.year }} · {{ a.artist }}</small>
+          <h2>{{ a.title }}</h2>
+          <div class="modal__links">
+            @if (a.link) { <a [href]="a.link" target="_blank" rel="noopener">Apple Music</a> }
+            <a [href]="yt(a)" target="_blank" rel="noopener">YouTube</a>
+            <a [href]="sp(a)" target="_blank" rel="noopener">Spotify</a>
+          </div>
+        </div>
+      </div>
+
+      <ul class="modal__tracks">
+        @if (a.tracks?.length) {
+          @for (t of a.tracks; track t.name; let n = $index) {
+            <li>
+              @if (t.preview) {
+                <button class="play" [class.play--on]="playing() === t.preview" (click)="toggle(t.preview)"
+                  [attr.aria-label]="'Escuchar ' + t.name">{{ playing() === t.preview ? '❚❚' : '▶' }}</button>
+              } @else {
+                <span class="play play--off">♪</span>
+              }
+              <span class="name">{{ n + 1 }}. {{ t.name }}</span>
+              <a [href]="yt(a, t.name)" target="_blank" rel="noopener" title="Buscar en YouTube">YT</a>
+            </li>
+          }
+        } @else {
+          @for (s of a.songs; track s) {
+            <li>
+              <span class="play play--off">♪</span>
+              <span class="name">{{ s }}</span>
+              <a [href]="yt(a, s)" target="_blank" rel="noopener">YT</a>
+            </li>
+          }
+        }
+      </ul>
+    </div>
+  </div>
+}

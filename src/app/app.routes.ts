@@ -41,6 +41,12 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./pages/events/events.component').then((m) => m.EventsComponent),
   },
+ {
+    path: 'noticias',
+    title: 'Noticias · BTS',
+    loadComponent: () =>
+      import('./pages/news/news.component').then((m) => m.NewsComponent),
+  },
   {
     path: 'tienda',
     title: 'Tienda y descuentos · BTS',

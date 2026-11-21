@@ -10,11 +10,13 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { map } from 'rxjs';
 import { EventsService } from '../../core/services/events.service';
 import { daysLeft, fmtDate } from '../../core/utils/date.utils';
+import { NewsService } from '../../core/services/news.service';
+import { NewsCardComponent } from '../../shared/news-card/news-card.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterLink, SectionTitleComponent, MemberCardComponent, RevealDirective],
+  imports: [RouterLink, SectionTitleComponent, MemberCardComponent, RevealDirective, NewsCardComponent ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
@@ -30,4 +32,6 @@ export class HomeComponent {
 nextEvents = toSignal(this.eventsSvc.upcoming$.pipe(map((l) => l.slice(0, 3))), { initialValue: [] });
 fmt = fmtDate;
 days = daysLeft;
+private newsSvc = inject(NewsService);
+latestNews = toSignal(this.newsSvc.news$.pipe(map((l) => l.slice(0, 6))), { initialValue: [] });
 }
