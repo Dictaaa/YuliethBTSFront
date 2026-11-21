@@ -11,10 +11,10 @@
   transition: background 0.35s, backdrop-filter 0.35s, border-color 0.35s;
 
   &--scrolled {
+    background: rgba($cream, 0.6);
     -webkit-backdrop-filter: blur(16px);
     backdrop-filter: blur(16px);
-    background: rgba($cream, 0.55);
-  border-bottom-color: rgba($purple-main, 0.2);
+    border-bottom-color: rgba($purple-main, 0.2);
   }
 
   &__inner {
@@ -54,12 +54,19 @@
       padding: 0.45rem 0.9rem;
       font-size: 0.95rem;
       font-weight: 600;
+      color: $ink;
       border-radius: 999px;
       transition: background 0.2s, color 0.2s;
-      color: rgba($ink, 0.85);
-  &:hover { color: $purple-main; background: rgba($cream, 0.5); }
-  &.active { color: $ink; background: rgba($cream, 0.7); }
 
+      &:hover {
+        color: $purple-main;
+        background: rgba($cream, 0.6);
+      }
+
+      &.active {
+        color: $ink;
+        background: rgba($cream, 0.8);
+      }
     }
   }
 
@@ -67,7 +74,7 @@
     margin-left: 0.5rem;
     color: $cream;
     background: linear-gradient(135deg, $purple-main, #9b6df0);
-    box-shadow: 0 6px 18px rgba($purple-main, 0.5);
+    box-shadow: 0 6px 18px rgba($purple-main, 0.45);
 
     &:hover {
       color: $cream;
@@ -76,12 +83,11 @@
   }
 }
 
-@media (max-width: 920px) {
+@media (max-width: 1080px) {
   .nav {
     &--open {
-      background: rgba($ink, 0.92);
-      -webkit-backdrop-filter: blur(16px);
-      backdrop-filter: blur(16px);
+      background: $cream;
+      border-bottom-color: rgba($purple-main, 0.2);
     }
 
     &__burger {
@@ -98,8 +104,9 @@
       align-items: stretch;
       gap: 0.2rem;
       padding: 0.5rem 1.25rem 1.2rem;
-      background: rgba($ink, 0.96);
+      background: $cream;
       border-radius: 0 0 $radius $radius;
+      box-shadow: 0 16px 30px rgba($ink, 0.2);
 
       &--open {
         display: flex;
@@ -107,11 +114,23 @@
 
       a {
         padding: 0.8rem 1rem;
+        color: $ink;
+
+        &:hover,
+        &.active {
+          color: $purple-main;
+          background: rgba($purple-main, 0.12);
+        }
       }
 
       .nav__love {
         margin: 0.5rem 0 0;
         text-align: center;
+        color: $cream;
+
+        &:hover {
+          color: $cream;
+        }
       }
     }
   }
