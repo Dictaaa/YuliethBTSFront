@@ -1,0 +1,34 @@
+<div class="sa">
+  <div class="sa__top">
+    <span>Ronda {{ round() + 1 }} / {{ cfg.rounds }}</span>
+    <span>⏱️ {{ secs() }}s</span>
+    <span class="sa__pts">⭐ {{ points() }} pts</span>
+  </div>
+
+  <p class="sa__ask">Ordena del <b>más antiguo</b> (arriba) al <b>más nuevo</b> (abajo)</p>
+
+  <ol class="sa__list">
+    @for (a of list(); let i = $index; track a.id) {
+      <li [class.ok]="checked() && marks()[i]" [class.bad]="checked() && !marks()[i]">
+        <span class="n">{{ i + 1 }}</span>
+        <span class="t">
+          <strong>{{ a.title }}</strong>
+          @if (checked()) { <small>{{ a.year }}</small> }
+        </span>
+        <span class="btns">
+          <button (click)="move(i, -1)" [disabled]="checked() || i === 0" aria-label="Subir">▲</button>
+          <button (click)="move(i, 1)" [disabled]="checked() || i === list().length - 1" aria-label="Bajar">▼</button>
+        </span>
+      </li>
+    }
+  </ol>
+
+  @if (!checked()) {
+    <button class="next" (click)="check()">Comprobar</button>
+  } @else {
+    <div class="sa__fb" [class.sa__fb--bad]="!perfect()" aria-live="polite">
+      <p>{{ feedback() }}</p>
+      <button class="next" (click)="next()">{{ isLast() ? 'Ver resultado' : 'Siguiente ronda →' }}</button>
+    </div>
+  }
+</div>

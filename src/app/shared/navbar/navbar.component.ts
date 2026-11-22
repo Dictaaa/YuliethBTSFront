@@ -21,6 +21,7 @@ export class NavbarComponent {
         { path: '/noticias', label: 'Noticias', exact: false },
     { path: '/tienda', label: 'Tienda', exact: false },
     //{ path: '/yulieth', label: 'Yulieth', exact: false },
+    { path: '/juegos', label: 'Juegos', exact: false },
   ];
 
   constructor() {

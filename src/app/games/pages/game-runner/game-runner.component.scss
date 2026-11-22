@@ -1,0 +1,83 @@
+@use '../../../../styles/variables' as *;
+
+.gr {
+  padding-top: 1.5rem;
+
+  &__back { display: inline-block; margin-bottom: 1rem; font-weight: 700; color: $purple-main; }
+
+  &__head {
+    margin-bottom: 2rem;
+    text-align: center;
+
+    h1 { font-size: clamp(1.8rem, 5vw, 2.8rem); }
+    p { max-width: 520px; margin: 0.5rem auto 0; line-height: 1.6; color: rgba($ink, 0.8); }
+  }
+
+  &__icon {
+    display: inline-grid;
+    place-items: center;
+    width: 76px;
+    height: 76px;
+    margin-bottom: 0.6rem;
+    font-size: 2.4rem;
+    background: radial-gradient(circle at 35% 30%, #fff, $pink-soft 35%, $purple-light 75%);
+    border-radius: 50%;
+    box-shadow: inset -8px -10px 16px rgba($purple-main, 0.3), 0 12px 24px rgba($purple-main, 0.3);
+    animation: bob 4s ease-in-out infinite;
+  }
+
+  &__stage { max-width: 720px; margin: 0 auto; }
+
+  &__bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    font-weight: 800;
+    color: #4a2f80;
+
+    button {
+      padding: 0.4rem 1rem;
+      font: inherit;
+      font-weight: 700;
+      color: $ink;
+      cursor: pointer;
+      background: rgba($cream, 0.7);
+      border: 1px solid rgba($purple-main, 0.3);
+      border-radius: 999px;
+    }
+  }
+
+  &__soon {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    align-items: center;
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    background: rgba($cream, 0.55);
+    border: 2px dashed rgba($purple-main, 0.45);
+    border-radius: $radius;
+
+    > span { font-size: 2.6rem; }
+    small { color: rgba($ink, 0.7); }
+
+    button {
+      padding: 0.75rem 1.5rem;
+      font: inherit;
+      font-weight: 800;
+      color: $cream;
+      cursor: pointer;
+      background: linear-gradient(135deg, $purple-main, #9b6df0);
+      border: none;
+      border-radius: 999px;
+      box-shadow: 0 8px 20px rgba($purple-main, 0.45);
+    }
+  }
+}
+
+@keyframes bob { 50% { transform: translateY(-8px); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .gr__icon { animation: none; }
+}

@@ -1,0 +1,72 @@
+@if (showGate()) {
+<app-name-gate [cancellable]="player.hasName()" (done)="editing.set(false)" (dismissed)="editing.set(false)" />
+}
+
+<section class="container">
+    <header class="page-head">
+        <h1 appReveal="up">Juegos ARMY 🎮</h1>
+        <p appReveal="up" [revealDelay]="150">
+            @if (player.hasName()) {
+            ¡Hola, <b>{{ player.name() }}</b>! Elige un juego y demuestra cuánto sabes de BTS. 💜
+            } @else {
+            Elige un juego y demuestra cuánto sabes de BTS. 💜
+            }
+        </p>
+        @if (player.hasName()) {
+        <button class="link" (click)="editing.set(true)">✏️ Cambiar nombre</button>
+        }
+    </header>
+
+    <div class="stats">
+        <div class="stat" appReveal="zoom">
+            <span>Puntos</span>
+            <strong>{{ score.total() }}</strong>
+        </div>
+
+        <div class="stat stat--rank" appReveal="zoom" [revealDelay]="100">
+            <span>Tu rango</span>
+            <strong>{{ rank.current().icon }} {{ rank.current().label }}</strong>
+            <div class="bar"><i [style.width.%]="rank.progress()"></i></div>
+            <small>
+                @if (rank.next(); as n) {
+                Te faltan {{ rank.missing() }} puntos para {{ n.label }}
+                } @else {
+                ¡Llegaste a lo más alto! 👑
+                }
+            </small>
+        </div>
+
+        <div class="stat" appReveal="zoom" [revealDelay]="200">
+            <span>Racha</span>
+            <strong>🔥 {{ streak.current() }}</strong>
+            <small>{{ streak.current() === 1 ? 'día seguido' : 'días seguidos' }}</small>
+        </div>
+
+        <div class="stat" appReveal="zoom" [revealDelay]="300">
+            <span>Estrellas</span>
+            <strong>⭐ {{ score.totalStars() }}</strong>
+        </div>
+    </div>
+
+    <app-daily-challenge appReveal="up" />
+
+    <div class="center" appReveal="fade">
+        <button class="btn btn--share" (click)="share()">📸 Compartir mi progreso</button>
+        @if (shareMsg()) { <small class="share-msg">{{ shareMsg() }}</small> }
+    </div>
+
+    <div class="gap">
+        <app-section-title appReveal="up" title="Elige tu juego"
+            subtitle="Cada nivel superado desbloquea el siguiente" />
+    </div>
+
+    <div class="games">
+        @for (g of games; track g.id; let i = $index) {
+        <app-game-card [game]="g" [stars]="score.starsOf(g.id)" appReveal="up" [revealDelay]="(i % 3) * 100" />
+        }
+    </div>
+
+    <div class="center" appReveal="fade">
+        <a routerLink="/juegos/ranking" class="btn">🏆 Ver ranking</a>
+    </div>
+</section>

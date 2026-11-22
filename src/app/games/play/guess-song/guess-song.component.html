@@ -1,0 +1,72 @@
+@if (loading()) {
+<div class="gs gs--msg"><span>🎧</span>
+    <p>Preparando las canciones…</p>
+</div>
+} @else if (noData()) {
+<div class="gs gs--msg">
+    <span>🔇</span>
+    <p>Todavía no hay canciones con vista previa para jugar.</p>
+    <small>Ejecuta <b>node scripts/bts-updater/update-music.js</b> y revisa que <b>albums.json</b> tenga datos.</small>
+</div>
+} @else {
+@if (current(); as r) {
+<div class="gs">
+    <div class="gs__top">
+        <span>Ronda {{ idx() + 1 }} / {{ total() }}</span>
+        <span class="gs__pts">⭐ {{ points() }} pts</span>
+        @if (streak() >= 2) {
+        <span class="gs__streak">🔥 x{{ streak() }}</span>
+        }
+    </div>
+
+    <div class="gs__bar"><i [style.width.%]="progress()"></i></div>
+
+    <div class="gs__player">
+        <button class="gs__play" [class.gs__play--on]="playing()" (click)="play()" [disabled]="picked() !== null"
+            aria-label="Escuchar fragmento">
+            {{ playing() ? '♪' : '▶' }}
+        </button>
+
+        <div class="gs__eq" [class.gs__eq--on]="playing()" aria-hidden="true">
+            @for (b of [0, 1, 2, 3, 4, 5, 6]; track b) {
+            <i [style.animation-delay.s]="b * 0.09"></i>
+            }
+        </div>
+
+        <div class="gs__pips">
+            @for (p of pips(); track p) {
+            <span [class.on]="p <= clue()">Pista {{ p + 1 }} · {{ cfg.clips[p] }}s</span>
+            }
+        </div>
+
+        @if (playing()) {
+        <div class="gs__clip"><i [style.animation-duration.s]="clipSecs()"></i></div>
+        }
+
+        @if (canMore()) {
+        <button class="gs__more" (click)="more()">➕ Más pista (menos puntos)</button>
+        }
+    </div>
+
+    <p class="gs__ask">¿Qué canción es?</p>
+
+    <div class="gs__opts">
+        @for (o of r.options; let i = $index; track o) {
+        <button class="opt" [class.opt--ok]="state(o) === 'ok'" [class.opt--bad]="state(o) === 'bad'"
+            [class.opt--dim]="state(o) === 'dim'" [disabled]="picked() !== null || wrong().includes(o)"
+            (click)="choose(o)">
+            <span class="opt__l">{{ letters[i] }}</span>
+            <span>{{ o }}</span>
+        </button>
+        }
+    </div>
+
+    @if (picked() !== null) {
+    <div class="gs__fb" [class.gs__fb--bad]="!lastOk()" aria-live="polite">
+        <p>{{ feedback() }}</p>
+        <button class="next" (click)="next()">{{ isLast() ? 'Ver resultado' : 'Siguiente →' }}</button>
+    </div>
+    }
+</div>
+}
+}

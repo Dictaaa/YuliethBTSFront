@@ -1,0 +1,91 @@
+@use '../../../../styles/variables' as *;
+
+.ng {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: rgba($ink, 0.75);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  animation: in 0.3s;
+
+  &__box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    width: min(420px, 100%);
+    padding: 2rem 1.6rem;
+    text-align: center;
+    color: $ink;
+    background: $cream;
+    border-radius: 28px;
+    box-shadow: $shadow;
+    animation: pop 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+
+    h2 { color: $ink; font-size: 1.8rem; }
+    p { color: rgba($ink, 0.8); line-height: 1.6; }
+  }
+
+  &__orb {
+    display: grid;
+    place-items: center;
+    width: 84px;
+    height: 84px;
+    margin: 0 auto;
+    font-size: 2.4rem;
+    background: radial-gradient(circle at 35% 30%, #fff, $pink-soft 30%, $purple-light 60%, $purple-main);
+    border-radius: 50%;
+    box-shadow: inset -8px -10px 18px rgba($ink, 0.3), 0 14px 26px rgba($purple-main, 0.4);
+    animation: bob 4s ease-in-out infinite;
+  }
+
+  input {
+    padding: 0.85rem 1.1rem;
+    font: inherit;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-align: center;
+    color: $ink;
+    background: #fff;
+    border: 2px solid $purple-light;
+    border-radius: 16px;
+    outline: none;
+
+    &:focus { border-color: $purple-main; box-shadow: 0 0 0 4px rgba($purple-main, 0.2); }
+  }
+
+  &__err { color: #c0267a; font-weight: 700; }
+  &__note { font-size: 0.78rem; color: rgba($ink, 0.6); }
+
+  &__btns {
+    display: flex;
+    gap: 0.6rem;
+    justify-content: center;
+
+    button {
+      padding: 0.75rem 1.5rem;
+      font: inherit;
+      font-weight: 800;
+      cursor: pointer;
+      border: none;
+      border-radius: 999px;
+      transition: transform 0.2s;
+
+      &:hover { transform: translateY(-2px); }
+    }
+
+    .main { color: $cream; background: linear-gradient(135deg, $purple-main, #9b6df0); box-shadow: 0 8px 20px rgba($purple-main, 0.45); }
+    .ghost { color: $ink; background: rgba($purple-main, 0.12); }
+  }
+}
+
+@keyframes in { from { opacity: 0; } }
+@keyframes pop { from { opacity: 0; transform: scale(0.85) translateY(20px); } }
+@keyframes bob { 50% { transform: translateY(-8px); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .ng, .ng__box, .ng__orb { animation: none; }
+}

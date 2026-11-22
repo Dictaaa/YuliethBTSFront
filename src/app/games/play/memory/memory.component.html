@@ -1,0 +1,30 @@
+<div class="mm">
+  <div class="mm__top">
+    <span>Movimientos: <b>{{ moves() }}</b>@if (movesLeft() !== null) { / {{ cfg.limit }} }</span>
+    <span class="mm__pairs">💜 {{ matches() }} / {{ cfg.pairs }}</span>
+  </div>
+
+  @if (movesLeft() !== null && movesLeft()! <= 5) {
+    <p class="mm__warn">¡Te quedan {{ movesLeft() }} movimientos!</p>
+  } @else {
+    <p class="mm__msg" aria-live="polite">{{ message() }}</p>
+  }
+
+  <div class="mm__grid" [style.--cols]="cols()">
+    @for (c of cards(); track c.id) {
+      <button class="card" [class.card--on]="c.flipped || c.matched" [class.card--ok]="c.matched"
+        (click)="flip(c)" [attr.aria-label]="c.flipped || c.matched ? 'Carta ' + c.face : 'Carta oculta'">
+        <span class="card__in">
+          <span class="card__back">💜</span>
+          <span class="card__front">
+            @if (c.photo && !bad(c)) {
+              <img [src]="c.photo" alt="" referrerpolicy="no-referrer" (error)="markBad(c.photo)" />
+            } @else {
+              {{ c.face }}
+            }
+          </span>
+        </span>
+      </button>
+    }
+  </div>
+</div>

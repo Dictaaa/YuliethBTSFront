@@ -1,0 +1,1 @@
+export { ALBUMS } from '../../../core/data/music.data';

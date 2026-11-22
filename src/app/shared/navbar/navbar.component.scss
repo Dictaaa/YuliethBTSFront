@@ -81,6 +81,14 @@
       background: linear-gradient(135deg, #7c4be0, #b69aef);
     }
   }
+
+    &__links .nav__game {
+    margin-left: 0.4rem;
+    color: $ink;
+    background: linear-gradient(135deg, $pink-soft, $purple-light);
+
+    &.active { box-shadow: 0 0 0 2px $purple-main; }
+  }
 }
 
 @media (max-width: 1080px) {
@@ -132,6 +140,8 @@
           color: $cream;
         }
       }
+
+            .nav__game { margin: 0.5rem 0 0; text-align: center; }
     }
   }
 }

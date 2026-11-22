@@ -47,4 +47,5 @@ export const QUICK_LINKS = [
   { icon: '📰', title: 'Noticias', text: 'Lo último, cada día', path: '/noticias' },
   { icon: '🛍️', title: 'Tienda', text: 'Merch y descuentos', path: '/tienda' },
   //{ icon: '✨', title: 'Sobre Yulieth', text: 'Mi portafolio ARMY', path: '/yulieth' },
+    { icon: '🎮', title: 'Juegos', text: 'Demuestra cuánto sabes', path: '/juegos' },
 ];

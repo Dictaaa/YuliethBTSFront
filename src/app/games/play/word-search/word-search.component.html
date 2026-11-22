@@ -1,0 +1,33 @@
+<div class="ws">
+  <div class="ws__top">
+    <span>Palabras: <b>{{ foundWords().size }}</b> / {{ words().length }}</span>
+    <span class="ws__time" [class.low]="left() <= 20">⏱️ {{ mmss() }}</span>
+    <span class="ws__pts">⭐ {{ points() }} pts</span>
+  </div>
+
+  <div class="ws__bar" [class.low]="left() <= 20"><i [style.width.%]="timePct()"></i></div>
+
+  <p class="ws__msg" [class.ws__msg--bad]="bad()" aria-live="polite">{{ message() }}</p>
+
+  <div class="ws__grid" [style.--n]="cfg.size">
+    @for (row of grid(); let r = $index; track r) {
+      @for (ch of row; let c = $index; track c) {
+        <button
+          class="cell"
+          [class.cell--found]="isFound(r, c)"
+          [class.cell--start]="isStart(r, c)"
+          [disabled]="finished()"
+          (click)="tap(r, c)"
+        >{{ ch }}</button>
+      }
+    }
+  </div>
+
+  <ul class="ws__words">
+    @for (w of words(); track w) {
+      <li [class.done]="foundWords().has(w)">{{ w }}</li>
+    }
+  </ul>
+
+  <small class="ws__help">Pueden estar en horizontal, vertical y, según el nivel, en diagonal o al revés.</small>
+</div>

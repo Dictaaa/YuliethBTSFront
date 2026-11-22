@@ -1,0 +1,61 @@
+@use '../../../../styles/variables' as *;
+
+:host { display: block; }
+
+.gc {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  height: 100%;
+  padding: 1.6rem 1.3rem 1.2rem;
+  color: $ink;
+  background: rgba($cream, 0.65);
+  border: 1px solid rgba($purple-main, 0.25);
+  border-radius: $radius;
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+
+  &:hover {
+    transform: translateY(-8px) rotate(-0.5deg);
+    border-color: $purple-main;
+    box-shadow: 0 18px 38px rgba($purple-main, 0.4);
+  }
+
+  &__tag {
+    position: absolute;
+    top: 0.9rem;
+    right: 0.9rem;
+    padding: 0.15rem 0.7rem;
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: $cream;
+    background: $purple-main;
+    border-radius: 999px;
+
+    &--soon { color: $ink; background: $pink-soft; }
+  }
+
+  &__icon {
+    display: grid;
+    place-items: center;
+    width: 64px;
+    height: 64px;
+    margin-bottom: 0.4rem;
+    font-size: 2rem;
+    background: radial-gradient(circle at 35% 30%, #fff, $pink-soft 35%, $purple-light 75%);
+    border-radius: 50%;
+    box-shadow: inset -6px -8px 14px rgba($purple-main, 0.3);
+  }
+
+  h3 { font-size: 1.2rem; line-height: 1.25; color: $ink; }
+  p { flex: 1; font-size: 0.9rem; line-height: 1.55; color: rgba($ink, 0.75); }
+
+  &__foot {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.6rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #4a2f80;
+  }
+}

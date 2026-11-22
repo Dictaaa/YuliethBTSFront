@@ -1,0 +1,47 @@
+@if (!finished()) {
+  <div class="bf">
+    <div class="bf__top">
+      <span>Pregunta {{ idx() + 1 }} / {{ total }}</span>
+    </div>
+    <div class="bf__bar"><i [style.width.%]="progress()"></i></div>
+
+    <h2 class="bf__q">{{ current().q }}</h2>
+
+    <div class="bf__opts">
+      @for (o of current().options; let i = $index; track i) {
+        <button class="opt" [class.opt--on]="chosen() === i" [class.opt--dim]="chosen() !== null && chosen() !== i"
+          [disabled]="chosen() !== null" (click)="choose(i)">
+          {{ o.text }}
+        </button>
+      }
+    </div>
+  </div>
+} @else {
+  <div class="bf bf--end">
+    <p class="bf__kicker">Tu resultado</p>
+
+    <div class="bf__orb">
+      @if (photoOk()) {
+        <img [src]="top().m.photo" [alt]="top().m.stage" referrerpolicy="no-referrer" (error)="photoOk.set(false)" />
+      } @else {
+        <span>{{ top().m.stage.charAt(0) }}</span>
+      }
+    </div>
+
+    <h2>{{ top().m.stage }}</h2>
+    <p class="bf__msg">{{ message() }}</p>
+    <p class="bf__desc">{{ profile() }}</p>
+
+    <div class="bf__rank">
+      @for (r of ranking(); let i = $index; track r.m.id) {
+        <div class="row">
+          <b>{{ r.m.stage }}</b>
+          <span class="row__bar"><i [style.width.%]="pct(r.score)" [style.animation-delay.s]="i * 0.1"></i></span>
+        </div>
+      }
+    </div>
+
+    <small>Es un test de diversión: las descripciones son un juego, no datos reales de los integrantes.</small>
+    <button class="next" (click)="finish()">Guardar mi resultado 💜</button>
+  </div>
+}

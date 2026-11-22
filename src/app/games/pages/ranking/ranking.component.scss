@@ -1,0 +1,54 @@
+@use '../../../../styles/variables' as *;
+
+.rk {
+  display: grid;
+  gap: 0.7rem;
+  max-width: 640px;
+  padding: 0;
+  margin: 0 auto;
+  list-style: none;
+
+  li {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    padding: 0.9rem 1.2rem;
+    background: rgba($cream, 0.65);
+    border: 1px solid rgba($purple-main, 0.25);
+    border-radius: $radius;
+  }
+
+  &__pos { min-width: 2rem; font-size: 1.5rem; text-align: center; font-weight: 800; color: $purple-main; }
+
+  &__body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+
+    strong { font-family: $font-title; font-size: 1.1rem; color: $ink; }
+    small { color: rgba($ink, 0.7); }
+  }
+
+  &__pts { font-family: $font-title; font-size: 1.5rem; color: $purple-main; }
+}
+
+.empty { text-align: center; color: rgba($ink, 0.75); }
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  justify-content: center;
+  margin-top: 2.5rem;
+
+  .btn, .danger {
+    padding: 0.7rem 1.5rem;
+    font: inherit;
+    font-weight: 800;
+    cursor: pointer;
+    border-radius: 999px;
+  }
+
+  .btn { color: $cream; background: $purple-main; border: none; }
+  .danger { color: #a3175f; background: transparent; border: 2px solid #e0368f; }
+}

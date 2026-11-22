@@ -1,0 +1,103 @@
+@use '../../../../styles/variables' as *;
+
+.rm {
+  position: fixed;
+  inset: 0;
+  z-index: 250;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: rgba($ink, 0.75);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  animation: in 0.3s;
+
+  &__confetti {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+
+    span {
+      position: absolute;
+      top: -40px;
+      animation: fall linear infinite;
+    }
+  }
+
+  &__box {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    width: min(440px, 100%);
+    padding: 2rem 1.5rem 1.6rem;
+    text-align: center;
+    color: $ink;
+    background: $cream;
+    border-radius: 28px;
+    box-shadow: $shadow;
+    animation: pop 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+
+    h2 { font-size: 1.8rem; color: $ink; }
+  }
+
+  &__msg { font-size: 1.15rem; font-weight: 700; color: $purple-main; }
+
+  &__stars i {
+    display: inline-block;
+    font-size: 2.6rem;
+    font-style: normal;
+    color: rgba($ink, 0.18);
+
+    &.on { color: #f5b301; text-shadow: 0 4px 14px rgba(245, 179, 1, 0.7); animation: star 0.6s both; }
+  }
+
+  &__pts strong { font-family: $font-title; font-size: 2.2rem; color: $purple-main; }
+
+  &__best {
+    margin-left: 0.4rem;
+    padding: 0.15rem 0.7rem;
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: $cream;
+    background: #e0368f;
+    border-radius: 999px;
+  }
+
+  &__rank { padding: 0.6rem; font-weight: 800; background: rgba($purple-main, 0.12); border-radius: 14px; }
+
+  &__btns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    justify-content: center;
+    margin-top: 0.4rem;
+
+    button {
+      padding: 0.7rem 1.3rem;
+      font: inherit;
+      font-weight: 800;
+      color: $ink;
+      cursor: pointer;
+      background: rgba($purple-main, 0.14);
+      border: none;
+      border-radius: 999px;
+      transition: transform 0.2s;
+
+      &:hover { transform: translateY(-2px); }
+    }
+
+    .main { color: $cream; background: linear-gradient(135deg, $purple-main, #9b6df0); box-shadow: 0 8px 20px rgba($purple-main, 0.45); }
+  }
+}
+
+@keyframes in { from { opacity: 0; } }
+@keyframes pop { from { opacity: 0; transform: scale(0.8) translateY(30px); } }
+@keyframes star { from { opacity: 0; transform: scale(0.2) rotate(-90deg); } }
+@keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .rm, .rm__box, .rm__stars i { animation: none; }
+  .rm__confetti { display: none; }
+}

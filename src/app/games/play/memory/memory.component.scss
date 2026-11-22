@@ -1,0 +1,73 @@
+@use '../../../../styles/variables' as *;
+
+.mm {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  padding: 1.4rem 1.2rem;
+  background: rgba($cream, 0.7);
+  border: 1px solid rgba($purple-main, 0.25);
+  border-radius: 24px;
+  box-shadow: $shadow;
+
+  &__top { display: flex; justify-content: space-between; font-weight: 800; color: #4a2f80; }
+  &__pairs { color: $purple-main; }
+  &__msg, &__warn { min-height: 1.5rem; font-weight: 700; text-align: center; color: rgba($ink, 0.8); }
+  &__warn { color: #c0267a; animation: pulse 0.8s infinite; }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+    gap: 0.7rem;
+    max-width: 440px;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+.card {
+  aspect-ratio: 1;
+  padding: 0;
+  cursor: pointer;
+  background: none;
+  border: none;
+  perspective: 700px;
+
+  &__in {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+  }
+
+  &--on &__in { transform: rotateY(180deg); }
+
+  &__back, &__front {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    font-family: $font-title;
+    font-size: clamp(1.6rem, 8vw, 2.6rem);
+    border-radius: 16px;
+    backface-visibility: hidden;
+    box-shadow: 0 6px 14px rgba($purple-main, 0.3);
+  }
+
+  &__back { color: $cream; background: radial-gradient(circle at 35% 30%, #b99cff, $purple-main 75%); }
+  &__front { color: $ink; background: #fff; border: 3px solid $purple-light; transform: rotateY(180deg); img { width: 100%; height: 100%; object-fit: cover; } }
+
+  &--ok &__front { background: rgba(#2e9e6b, 0.2); border-color: #2e9e6b; animation: pop 0.4s; }
+  &:hover:not(.card--on) &__in { transform: translateY(-4px) scale(1.04); }
+}
+
+@keyframes pop { 50% { transform: rotateY(180deg) scale(1.12); } }
+@keyframes pulse { 50% { opacity: 0.6; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .card__in { transition: none; }
+  .card--ok .card__front, .mm__warn { animation: none; }
+}

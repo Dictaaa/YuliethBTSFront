@@ -1,0 +1,29 @@
+<section class="container">
+  <header class="page-head">
+    <h1 appReveal="up">Ranking 🏆</h1>
+    <p appReveal="up" [revealDelay]="150">
+      Tus mejores partidas en este dispositivo. Eres {{ rank.current().icon }} <b>{{ rank.current().label }}</b>
+      con {{ score.total() }} puntos.
+    </p>
+  </header>
+
+  <ol class="rk">
+    @for (e of list(); let i = $index; track i) {
+      <li appReveal="left" [revealDelay]="(i % 5) * 80">
+        <span class="rk__pos">{{ medal(i) }}</span>
+        <span class="rk__body">
+          <strong>{{ e.name }}</strong>
+          <small>{{ icon(e.gameId) }} {{ title(e.gameId) }} · Nivel {{ e.level }} · {{ fmt(e.date) }}</small>
+        </span>
+        <span class="rk__pts">{{ e.points }}</span>
+      </li>
+    } @empty {
+      <p class="empty">Todavía no hay partidas. ¡Juega la primera! 💜</p>
+    }
+  </ol>
+
+  <div class="actions">
+    <a routerLink="/juegos" class="btn">← Volver a los juegos</a>
+    <button class="danger" (click)="reset()">Borrar mi progreso</button>
+  </div>
+</section>

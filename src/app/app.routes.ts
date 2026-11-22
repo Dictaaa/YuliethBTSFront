@@ -69,5 +69,23 @@ export const routes: Routes = [
         (m) => m.ForYuliethComponent
       ),
   },
+    {
+    path: 'juegos',
+    title: 'Juegos ARMY 🎮',
+    loadComponent: () =>
+      import('./games/pages/games-hub/games-hub.component').then((m) => m.GamesHubComponent),
+  },
+  {
+    path: 'juegos/ranking',
+    title: 'Ranking · Juegos ARMY',
+    loadComponent: () =>
+      import('./games/pages/ranking/ranking.component').then((m) => m.RankingComponent),
+  },
+  {
+    path: 'juegos/:id',
+    title: 'Juego · ARMY',
+    loadComponent: () =>
+      import('./games/pages/game-runner/game-runner.component').then((m) => m.GameRunnerComponent),
+  },
   { path: '**', redirectTo: '' },
 ];

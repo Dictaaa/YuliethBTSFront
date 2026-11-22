@@ -1,0 +1,71 @@
+@if (current(); as r) {
+  <div class="es">
+    <div class="es__top">
+      <span>Canción {{ idx() + 1 }} / {{ total() }}</span>
+      <span class="es__pts">⭐ {{ points() }} pts</span>
+      @if (streak() >= 2) {
+        <span class="es__streak">🔥 x{{ streak() }}</span>
+      }
+    </div>
+
+    <div class="es__bar"><i [style.width.%]="progress()"></i></div>
+
+    <p class="es__ask">¿Qué canción de BTS es?</p>
+
+    @for (k of [idx()]; track k) {
+      <div class="es__emojis">
+        @for (e of r.emojis; let i = $index; track i) {
+          <span [style.animation-delay.s]="i * 0.18">{{ e }}</span>
+        }
+      </div>
+    }
+
+    @if (cfg.typed) {
+      <div class="es__type">
+        <input
+          type="text"
+          placeholder="Escribe el título de la canción"
+          autocomplete="off"
+          autocapitalize="off"
+          [value]="typed()"
+          [disabled]="picked() !== null"
+          (input)="typed.set($any($event.target).value)"
+          (keydown.enter)="submit()"
+        />
+        <button class="next" (click)="submit()" [disabled]="picked() !== null || !typed().trim()">Responder</button>
+      </div>
+
+      @if (picked() === null) {
+        <div class="es__hint">
+          <button (click)="hint()" [disabled]="hinted()">💡 Pista (−5 pts)</button>
+          @if (hinted()) {
+            <small>{{ hintText() }}</small>
+          }
+        </div>
+      }
+    } @else {
+      <div class="es__opts">
+        @for (o of r.options; let i = $index; track o) {
+          <button
+            class="opt"
+            [class.opt--ok]="state(o) === 'ok'"
+            [class.opt--bad]="state(o) === 'bad'"
+            [class.opt--dim]="state(o) === 'dim'"
+            [disabled]="picked() !== null"
+            (click)="choose(o)"
+          >
+            <span class="opt__l">{{ letters[i] }}</span>
+            <span>{{ o }}</span>
+          </button>
+        }
+      </div>
+    }
+
+    @if (picked() !== null) {
+      <div class="es__fb" [class.es__fb--bad]="!lastOk()" aria-live="polite">
+        <p>{{ feedback() }}</p>
+        <button class="next" (click)="next()">{{ isLast() ? 'Ver resultado' : 'Siguiente →' }}</button>
+      </div>
+    }
+  </div>
+}

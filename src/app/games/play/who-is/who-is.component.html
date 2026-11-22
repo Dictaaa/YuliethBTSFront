@@ -1,0 +1,55 @@
+@if (current(); as r) {
+  <div class="wi">
+    <div class="wi__top">
+      <span>Ronda {{ idx() + 1 }} / {{ total() }}</span>
+      <span class="wi__pts">⭐ {{ points() }} pts</span>
+      @if (streak() >= 2) {
+        <span class="wi__streak">🔥 x{{ streak() }}</span>
+      }
+    </div>
+
+    <div class="wi__bar"><i [style.width.%]="progress()"></i></div>
+
+    <p class="wi__ask">¿Quién es el integrante?</p>
+
+    <div class="wi__stage">
+      @if (cfg.photo !== 'none' && photoOk()) {
+        <div class="wi__photo" [class.wi__photo--sil]="cfg.photo === 'silhouette' && picked() === null">
+          <img [src]="r.member.photo" alt="Integrante misterioso" referrerpolicy="no-referrer"
+            (error)="photoOk.set(false)" />
+        </div>
+      } @else {
+        <div class="wi__mystery">{{ picked() === null ? '?' : r.member.stage.charAt(0) }}</div>
+      }
+
+      <ul class="wi__clues">
+        @for (c of r.clues; let i = $index; track i) {
+          <li [style.animation-delay.s]="i * 0.2">💜 {{ c }}</li>
+        }
+      </ul>
+    </div>
+
+    <div class="wi__opts">
+      @for (o of r.options; let i = $index; track o.id) {
+        <button
+          class="opt"
+          [class.opt--ok]="state(o) === 'ok'"
+          [class.opt--bad]="state(o) === 'bad'"
+          [class.opt--dim]="state(o) === 'dim'"
+          [disabled]="picked() !== null"
+          (click)="choose(o)"
+        >
+          <span class="opt__l">{{ letters[i] }}</span>
+          <span>{{ o.stage }}</span>
+        </button>
+      }
+    </div>
+
+    @if (picked() !== null) {
+      <div class="wi__fb" [class.wi__fb--bad]="!lastOk()" aria-live="polite">
+        <p>{{ feedback() }}</p>
+        <button class="next" (click)="next()">{{ isLast() ? 'Ver resultado' : 'Siguiente →' }}</button>
+      </div>
+    }
+  </div>
+}

@@ -1,0 +1,45 @@
+@if (current(); as qn) {
+  <div class="quiz">
+    <div class="quiz__top">
+      <span>Pregunta {{ idx() + 1 }} / {{ total() }}</span>
+      <span class="quiz__pts">⭐ {{ points() }} pts</span>
+      @if (streak() >= 2) {
+        <span class="quiz__streak">🔥 x{{ streak() }}</span>
+      }
+    </div>
+
+    <div class="quiz__bar"><i [style.width.%]="progress()"></i></div>
+
+    @if (cfg.time) {
+      <div class="quiz__time" [class.low]="left() <= 5">
+        <i [style.width.%]="(left() / cfg.time) * 100"></i>
+        <b>{{ left().toFixed(0) }}s</b>
+      </div>
+    }
+
+    <h2 class="quiz__q">{{ qn.q }}</h2>
+
+    <div class="quiz__opts">
+      @for (o of qn.options; let i = $index; track o) {
+        <button
+          class="opt"
+          [class.opt--ok]="state(o) === 'ok'"
+          [class.opt--bad]="state(o) === 'bad'"
+          [class.opt--dim]="state(o) === 'dim'"
+          [disabled]="picked() !== null"
+          (click)="answer(o)"
+        >
+          <span class="opt__l">{{ letters[i] }}</span>
+          <span>{{ o }}</span>
+        </button>
+      }
+    </div>
+
+    @if (picked() !== null) {
+      <div class="quiz__fb" [class.quiz__fb--bad]="!lastOk()" aria-live="polite">
+        <p>{{ feedback() }}</p>
+        <button class="next" (click)="next()">{{ isLast() ? 'Ver resultado' : 'Siguiente →' }}</button>
+      </div>
+    }
+  </div>
+}

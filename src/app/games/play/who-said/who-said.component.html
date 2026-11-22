@@ -1,0 +1,62 @@
+@if (loading()) {
+  <div class="ws ws--msg"><span>💬</span><p>Preparando las frases…</p></div>
+} @else if (notEnough()) {
+  <div class="ws ws--msg">
+    <span>📝</span>
+    <p>Este juego se activa con frases verificadas.</p>
+    <small>
+      Agrega al menos 5 en <b>src/assets/data/bts/quotes.json</b>, cada una con su fuente y
+      <b>"verified": true</b>.
+    </small>
+  </div>
+} @else {
+  @if (current(); as r) {
+    <div class="ws">
+      <div class="ws__top">
+        <span>Frase {{ idx() + 1 }} / {{ total() }}</span>
+        <span class="ws__pts">⭐ {{ points() }} pts</span>
+        @if (streak() >= 2) {
+          <span class="ws__streak">🔥 x{{ streak() }}</span>
+        }
+      </div>
+
+      <div class="ws__bar"><i [style.width.%]="progress()"></i></div>
+
+      <p class="ws__ask">¿Quién dijo esto?</p>
+      <blockquote class="ws__quote">“{{ r.quote.quote }}”</blockquote>
+
+      <div class="ws__opts">
+        @for (o of r.options; let i = $index; track o.id) {
+          <button
+            class="opt"
+            [class.opt--ok]="state(o) === 'ok'"
+            [class.opt--bad]="state(o) === 'bad'"
+            [class.opt--dim]="state(o) === 'dim'"
+            [disabled]="picked() !== null"
+            (click)="choose(o)"
+          >
+            <span class="opt__l">{{ letters[i] }}</span>
+            <span>{{ o.stage }}</span>
+          </button>
+        }
+      </div>
+
+      @if (picked() !== null) {
+        <div class="ws__fb" [class.ws__fb--bad]="!lastOk()" aria-live="polite">
+          <p>
+            {{ feedback() }}
+            <small>
+              Fuente:
+              @if (r.quote.url) {
+                <a [href]="r.quote.url" target="_blank" rel="noopener noreferrer">{{ r.quote.source }}</a>
+              } @else {
+                {{ r.quote.source }}
+              }
+            </small>
+          </p>
+          <button class="next" (click)="next()">{{ isLast() ? 'Ver resultado' : 'Siguiente →' }}</button>
+        </div>
+      }
+    </div>
+  }
+}

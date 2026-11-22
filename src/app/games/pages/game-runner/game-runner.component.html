@@ -1,0 +1,86 @@
+@if (!player.hasName()) {
+<app-name-gate />
+}
+
+@if (game(); as g) {
+<section class="container gr">
+    <a routerLink="/juegos" class="gr__back">← Todos los juegos</a>
+
+    <header class="gr__head">
+        <span class="gr__icon">{{ g.icon }}</span>
+        <h1>{{ g.title }}</h1>
+        <p>{{ g.desc }}</p>
+    </header>
+
+    @if (level() === null) {
+    <app-level-picker [game]="g" (pick)="start($event)" />
+    } @else {
+    <div class="gr__stage">
+        <div class="gr__bar">
+            <button (click)="exit()">← Niveles</button>
+            <span>{{ g.levels[level()! - 1].name }} · Nivel {{ level() }}</span>
+        </div>
+
+        @if (g.id === 'army-quiz') {
+        @for (k of [run()]; track k) {
+        <app-army-quiz [level]="level()!" (done)="finish($event)" />
+        }
+        } @else if (g.id === 'emoji-song') {
+        @for (k of [run()]; track k) {
+        <app-emoji-song [level]="level()!" (done)="finish($event)" />
+        }
+        } @else if (g.id === 'guess-song') {
+        @for (k of [run()]; track k) {
+        <app-guess-song [level]="level()!" (done)="finish($event)" />
+        }
+        } @else if (g.id === 'who-is') {
+        @for (k of [run()]; track k) {
+        <app-who-is [level]="level()!" (done)="finish($event)" />
+        }
+        } @else if (g.id === 'bestfriend-test') {
+        @for (k of [run()]; track k) {
+        <app-bestfriend-test (done)="finish($event)" />
+        }
+        } @else if (g.id === 'memory') {
+        @for (k of [run()]; track k) {
+        <app-memory [level]="level()!" (done)="finish($event)" />
+        }
+        } @else if (g.id === 'sort-albums') {
+        @for (k of [run()]; track k) {
+        <app-sort-albums [level]="level()!" (done)="finish($event)" />
+        }
+        } @else if (g.id === 'word-search') {
+        @for (k of [run()]; track k) {
+        <app-word-search [level]="level()!" (done)="finish($event)" />
+        }
+        } @else if (g.id === 'survive-concert') {
+        @for (k of [run()]; track k) {
+        <app-survive-concert (done)="finish($event)" />
+        }
+        } @else if (g.id === 'who-said') {
+        @for (k of [run()]; track k) {
+        <app-who-said (done)="finish($event)" />
+        }
+        } @else {
+        <div class="gr__soon">
+            <span>🛠️</span>
+            <p>Este juego se está construyendo.</p>
+            <button (click)="simulate()">Simular partida de prueba</button>
+            <small>Sirve para probar puntos, estrellas, niveles y racha.</small>
+        </div>
+        }
+    </div>
+    }
+</section>
+
+@if (result(); as r) {
+<app-result-modal [data]="r" (retry)="retry()" (next)="next()" (exit)="exit()" (share)="share()" />
+}
+} @else {
+<section class="container">
+    <header class="page-head">
+        <h1>No encontré ese juego 😢</h1>
+        <p><a routerLink="/juegos">Volver a los juegos</a></p>
+    </header>
+</section>
+}

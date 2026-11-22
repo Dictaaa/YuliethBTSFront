@@ -1,0 +1,71 @@
+<div class="sv">
+  <div class="sv__stats">
+    @for (k of keys; track k) {
+      <div class="meter" [class.meter--low]="stats()[k] <= 2">
+        <span>{{ labels[k] }}</span>
+        <div class="meter__bar"><i [style.width.%]="pct(k)"></i></div>
+        <b>{{ stats()[k] }}</b>
+      </div>
+    }
+  </div>
+
+  @if (!summary()) {
+    <div class="sv__bar"><i [style.width.%]="progress()"></i></div>
+
+    <div class="sv__card">
+      <small>Decisión {{ idx() + 1 }} / {{ steps.length }} · {{ current().title }}</small>
+      <h2>{{ current().ask }}</h2>
+      @if (current().multi) {
+        <p class="sv__hint">Elige hasta {{ current().multi }} ({{ selected().length }}/{{ current().multi }})</p>
+      }
+    </div>
+
+    <div class="sv__opts">
+      @for (o of current().options; track o.id) {
+        @if (current().multi) {
+          <button class="opt" [class.opt--on]="isSel(o)" [disabled]="confirmed()" (click)="toggle(o)">
+            <span class="opt__i">{{ o.icon }}</span>
+            <span>{{ o.text }}</span>
+          </button>
+        } @else {
+          <button class="opt" [class.opt--on]="isSel(o)" [class.opt--dim]="confirmed() && !isSel(o)"
+            [disabled]="confirmed()" (click)="choose(o)">
+            <span class="opt__i">{{ o.icon }}</span>
+            <span>{{ o.text }}</span>
+          </button>
+        }
+      }
+    </div>
+
+    @if (current().multi && !confirmed()) {
+      <button class="next" [disabled]="!selected().length" (click)="confirmMulti()">Confirmar mi mochila 🎒</button>
+    }
+
+    @if (confirmed()) {
+      <div class="sv__fb" aria-live="polite">
+        <p>{{ feedback() }}</p>
+        <button class="next" (click)="next()">{{ isLast() ? 'Ver cómo me fue →' : 'Siguiente →' }}</button>
+      </div>
+    }
+  } @else {
+    <div class="sv__end">
+      <h2>Así fue tu día de concierto 🎤</h2>
+
+      <ul class="sv__log">
+        @for (e of log(); track e.title) {
+          <li [class.ok]="e.ok" [class.bad]="!e.ok">
+            <span>{{ e.icon }}</span>
+            <div>
+              <strong>{{ e.title }}</strong>
+              <small>{{ e.ok ? '✅' : '⚠️' }} {{ e.text }}</small>
+            </div>
+          </li>
+        }
+      </ul>
+
+      <p class="sv__total">Total: <b>{{ total() }}</b> / 40</p>
+      <p class="sv__verdict">{{ verdict() }}</p>
+      <button class="next" (click)="finish()">Guardar mi resultado 💜</button>
+    </div>
+  }
+</div>
