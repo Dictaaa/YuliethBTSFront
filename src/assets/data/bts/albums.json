@@ -208,24 +208,6 @@
     ]
   },
   {
-    "id": "1772993909",
-    "title": "Super Tuna",
-    "year": 2024,
-    "artist": "Jin",
-    "type": "solo",
-    "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/34/67/dd/3467ddf5-e4d7-3b57-023a-76640c863a5b/198704128257_Cover.jpg/600x600bb.jpg",
-    "link": "https://music.apple.com/us/album/super-tuna-single/1772993909?uo=4",
-    "songs": [
-      "Super Tuna"
-    ],
-    "tracks": [
-      {
-        "name": "Super Tuna",
-        "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/67/37/6f/67376f7f-5508-3bf4-ca54-97c5ead4b32b/mzaf_17010867394368247476.plus.aac.p.m4a"
-      }
-    ]
-  },
-  {
     "id": "1772351320",
     "title": "Happy",
     "year": 2024,
@@ -265,6 +247,24 @@
       {
         "name": "I will come to you",
         "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/b5/6c/7d/b56c7d5c-0a0b-323a-bcd7-e759364655e3/mzaf_7864676014762738164.plus.aac.p.m4a"
+      }
+    ]
+  },
+  {
+    "id": "1772993909",
+    "title": "Super Tuna",
+    "year": 2024,
+    "artist": "Jin",
+    "type": "solo",
+    "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/34/67/dd/3467ddf5-e4d7-3b57-023a-76640c863a5b/198704128257_Cover.jpg/600x600bb.jpg",
+    "link": "https://music.apple.com/us/album/super-tuna-single/1772993909?uo=4",
+    "songs": [
+      "Super Tuna"
+    ],
+    "tracks": [
+      {
+        "name": "Super Tuna",
+        "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/67/37/6f/67376f7f-5508-3bf4-ca54-97c5ead4b32b/mzaf_17010867394368247476.plus.aac.p.m4a"
       }
     ]
   },
@@ -890,24 +890,6 @@
     ]
   },
   {
-    "id": "1693711059",
-    "title": "My You",
-    "year": 2022,
-    "artist": "Jung Kook",
-    "type": "solo",
-    "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/e6/41/04/e641046b-100d-266d-f128-43e600ff2e1b/192641872389_Cover.jpg/600x600bb.jpg",
-    "link": "https://music.apple.com/us/album/my-you-single/1693711059?uo=4",
-    "songs": [
-      "My You"
-    ],
-    "tracks": [
-      {
-        "name": "My You",
-        "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/d0/a7/71/d0a77161-645e-0053-20a9-989122f9a009/mzaf_6481535517899733179.plus.aac.p.m4a"
-      }
-    ]
-  },
-  {
     "id": "1607612139",
     "title": "Stay Alive (Prod. by SUGA of BTS)",
     "year": 2022,
@@ -922,6 +904,24 @@
       {
         "name": "Stay Alive (Prod. SUGA of BTS)",
         "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/17/5e/6e/175e6ed7-0b7a-3bd1-1fb9-59dbdd7adc82/mzaf_3001441741718237612.plus.aac.p.m4a"
+      }
+    ]
+  },
+  {
+    "id": "1693711059",
+    "title": "My You",
+    "year": 2022,
+    "artist": "Jung Kook",
+    "type": "solo",
+    "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/e6/41/04/e641046b-100d-266d-f128-43e600ff2e1b/192641872389_Cover.jpg/600x600bb.jpg",
+    "link": "https://music.apple.com/us/album/my-you-single/1693711059?uo=4",
+    "songs": [
+      "My You"
+    ],
+    "tracks": [
+      {
+        "name": "My You",
+        "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/d0/a7/71/d0a77161-645e-0053-20a9-989122f9a009/mzaf_6481535517899733179.plus.aac.p.m4a"
       }
     ]
   },
@@ -2405,34 +2405,6 @@
     ]
   },
   {
-    "id": "1001417810",
-    "title": "FOR YOU",
-    "year": 2015,
-    "artist": "BTS",
-    "type": "grupo",
-    "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music7/v4/86/85/7b/86857be7-12f7-e211-990d-7b7936bd5bb3/PCCA_04230_itunes.png/600x600bb.jpg",
-    "link": "https://music.apple.com/us/album/for-you-single/1001417810?uo=4",
-    "songs": [
-      "For You",
-      "Hormone Sensou(Japanese Ver.) [Japanese Ver.]",
-      "Let Me Know(Japanese Ver.) [Japanese Ver.]"
-    ],
-    "tracks": [
-      {
-        "name": "For You",
-        "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/7b/1a/43/7b1a4301-409a-64ae-65a0-d3d0132e3ce7/mzaf_14801795354573781519.plus.aac.p.m4a"
-      },
-      {
-        "name": "Hormone Sensou(Japanese Ver.) [Japanese Ver.]",
-        "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/fc/4a/cc/fc4acc7d-f893-1835-7b53-32ef0385a3cf/mzaf_3976295245302742339.plus.aac.p.m4a"
-      },
-      {
-        "name": "Let Me Know(Japanese Ver.) [Japanese Ver.]",
-        "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/5a/8c/0d/5a8c0dd0-932a-0829-cf40-13dd3252cd18/mzaf_14776331292848908910.plus.aac.p.m4a"
-      }
-    ]
-  },
-  {
     "id": "1062227026",
     "title": "I NEED U -Japanese Ver.- (通常盤)",
     "year": 2015,
@@ -2457,6 +2429,34 @@
       {
         "name": "Funtan Syounendan (Japanese Ver.) [Japanese Ver.]",
         "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/d4/14/8c/d4148c2a-2c3f-d415-ebac-8b9a19e885cf/mzaf_16902050396487276049.plus.aac.p.m4a"
+      }
+    ]
+  },
+  {
+    "id": "1001417810",
+    "title": "FOR YOU",
+    "year": 2015,
+    "artist": "BTS",
+    "type": "grupo",
+    "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music7/v4/86/85/7b/86857be7-12f7-e211-990d-7b7936bd5bb3/PCCA_04230_itunes.png/600x600bb.jpg",
+    "link": "https://music.apple.com/us/album/for-you-single/1001417810?uo=4",
+    "songs": [
+      "For You",
+      "Hormone Sensou(Japanese Ver.) [Japanese Ver.]",
+      "Let Me Know(Japanese Ver.) [Japanese Ver.]"
+    ],
+    "tracks": [
+      {
+        "name": "For You",
+        "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/7b/1a/43/7b1a4301-409a-64ae-65a0-d3d0132e3ce7/mzaf_14801795354573781519.plus.aac.p.m4a"
+      },
+      {
+        "name": "Hormone Sensou(Japanese Ver.) [Japanese Ver.]",
+        "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/fc/4a/cc/fc4acc7d-f893-1835-7b53-32ef0385a3cf/mzaf_3976295245302742339.plus.aac.p.m4a"
+      },
+      {
+        "name": "Let Me Know(Japanese Ver.) [Japanese Ver.]",
+        "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/5a/8c/0d/5a8c0dd0-932a-0829-cf40-13dd3252cd18/mzaf_14776331292848908910.plus.aac.p.m4a"
       }
     ]
   },
@@ -2694,34 +2694,6 @@
     ]
   },
   {
-    "id": "896924982",
-    "title": "BOY IN LUV -Japanese Ver.- Single",
-    "year": 2014,
-    "artist": "BTS",
-    "type": "grupo",
-    "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/59/c0/e3/59c0e3aa-69f0-821d-f81c-029cf0ec9e00/PCCA_04068_itunes.png/600x600bb.jpg",
-    "link": "https://music.apple.com/us/album/boy-in-luv-japanese-ver-single/896924982?uo=4",
-    "songs": [
-      "Boy In Luv -Japanese Ver.- (Japanese Ver.)",
-      "N.O -Japanese Ver.- (Japanese Ver.)",
-      "Just One Day -Japanese Ver.- (Japanese Ver.)"
-    ],
-    "tracks": [
-      {
-        "name": "Boy In Luv -Japanese Ver.- (Japanese Ver.)",
-        "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/73/2f/1d/732f1dd6-9ee5-aca0-07ed-ffed567f78fc/mzaf_1992242610956729814.plus.aac.p.m4a"
-      },
-      {
-        "name": "N.O -Japanese Ver.- (Japanese Ver.)",
-        "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/e1/51/26/e1512686-ade4-2f90-0e3c-48db1b0c15e4/mzaf_12079470226651971972.plus.aac.p.m4a"
-      },
-      {
-        "name": "Just One Day -Japanese Ver.- (Japanese Ver.)",
-        "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/3d/7b/d8/3d7bd8fe-b952-1952-a67b-f466216a12ef/mzaf_7903785847215515517.plus.aac.p.m4a"
-      }
-    ]
-  },
-  {
     "id": "939532822",
     "title": "Danger -Japanese Ver.- (通常盤)",
     "year": 2014,
@@ -2746,6 +2718,34 @@
       {
         "name": "Miss Right -Japanese Ver.- (Japanese Ver.)",
         "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/cf/47/98/cf4798ae-362c-e305-0ef1-a064259e04ee/mzaf_7037803050615433504.plus.aac.p.m4a"
+      }
+    ]
+  },
+  {
+    "id": "896924982",
+    "title": "BOY IN LUV -Japanese Ver.- Single",
+    "year": 2014,
+    "artist": "BTS",
+    "type": "grupo",
+    "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/59/c0/e3/59c0e3aa-69f0-821d-f81c-029cf0ec9e00/PCCA_04068_itunes.png/600x600bb.jpg",
+    "link": "https://music.apple.com/us/album/boy-in-luv-japanese-ver-single/896924982?uo=4",
+    "songs": [
+      "Boy In Luv -Japanese Ver.- (Japanese Ver.)",
+      "N.O -Japanese Ver.- (Japanese Ver.)",
+      "Just One Day -Japanese Ver.- (Japanese Ver.)"
+    ],
+    "tracks": [
+      {
+        "name": "Boy In Luv -Japanese Ver.- (Japanese Ver.)",
+        "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/73/2f/1d/732f1dd6-9ee5-aca0-07ed-ffed567f78fc/mzaf_1992242610956729814.plus.aac.p.m4a"
+      },
+      {
+        "name": "N.O -Japanese Ver.- (Japanese Ver.)",
+        "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/e1/51/26/e1512686-ade4-2f90-0e3c-48db1b0c15e4/mzaf_12079470226651971972.plus.aac.p.m4a"
+      },
+      {
+        "name": "Just One Day -Japanese Ver.- (Japanese Ver.)",
+        "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/3d/7b/d8/3d7bd8fe-b952-1952-a67b-f466216a12ef/mzaf_7903785847215515517.plus.aac.p.m4a"
       }
     ]
   },
