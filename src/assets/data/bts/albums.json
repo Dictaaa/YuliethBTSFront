@@ -2405,34 +2405,6 @@
     ]
   },
   {
-    "id": "1062227026",
-    "title": "I NEED U -Japanese Ver.- (通常盤)",
-    "year": 2015,
-    "artist": "BTS",
-    "type": "grupo",
-    "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/cb/ee/c7/cbeec7d7-dd83-d495-8056-d7eca11cce71/PCCA_04300_itunes.png/600x600bb.jpg",
-    "link": "https://music.apple.com/us/album/i-need-u-japanese-ver-%E9%80%9A%E5%B8%B8%E7%9B%A4-single/1062227026?uo=4",
-    "songs": [
-      "I Need U (Japanese Ver.) [Japanese Ver.]",
-      "Dope - Chou Yabee! - (Japanese Ver.) [Japanese Ver.]",
-      "Funtan Syounendan (Japanese Ver.) [Japanese Ver.]"
-    ],
-    "tracks": [
-      {
-        "name": "I Need U (Japanese Ver.) [Japanese Ver.]",
-        "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/61/19/b1/6119b163-cd7b-bff0-63dd-2bccc211c555/mzaf_16318703511625400132.plus.aac.p.m4a"
-      },
-      {
-        "name": "Dope - Chou Yabee! - (Japanese Ver.) [Japanese Ver.]",
-        "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/1b/5e/6d/1b5e6d11-2c8f-2e0a-5012-27accf4057cb/mzaf_7125369823145305036.plus.aac.p.m4a"
-      },
-      {
-        "name": "Funtan Syounendan (Japanese Ver.) [Japanese Ver.]",
-        "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/d4/14/8c/d4148c2a-2c3f-d415-ebac-8b9a19e885cf/mzaf_16902050396487276049.plus.aac.p.m4a"
-      }
-    ]
-  },
-  {
     "id": "1001417810",
     "title": "FOR YOU",
     "year": 2015,
@@ -2457,6 +2429,34 @@
       {
         "name": "Let Me Know(Japanese Ver.) [Japanese Ver.]",
         "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/5a/8c/0d/5a8c0dd0-932a-0829-cf40-13dd3252cd18/mzaf_14776331292848908910.plus.aac.p.m4a"
+      }
+    ]
+  },
+  {
+    "id": "1062227026",
+    "title": "I NEED U -Japanese Ver.- (通常盤)",
+    "year": 2015,
+    "artist": "BTS",
+    "type": "grupo",
+    "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/cb/ee/c7/cbeec7d7-dd83-d495-8056-d7eca11cce71/PCCA_04300_itunes.png/600x600bb.jpg",
+    "link": "https://music.apple.com/us/album/i-need-u-japanese-ver-%E9%80%9A%E5%B8%B8%E7%9B%A4-single/1062227026?uo=4",
+    "songs": [
+      "I Need U (Japanese Ver.) [Japanese Ver.]",
+      "Dope - Chou Yabee! - (Japanese Ver.) [Japanese Ver.]",
+      "Funtan Syounendan (Japanese Ver.) [Japanese Ver.]"
+    ],
+    "tracks": [
+      {
+        "name": "I Need U (Japanese Ver.) [Japanese Ver.]",
+        "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/61/19/b1/6119b163-cd7b-bff0-63dd-2bccc211c555/mzaf_16318703511625400132.plus.aac.p.m4a"
+      },
+      {
+        "name": "Dope - Chou Yabee! - (Japanese Ver.) [Japanese Ver.]",
+        "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/1b/5e/6d/1b5e6d11-2c8f-2e0a-5012-27accf4057cb/mzaf_7125369823145305036.plus.aac.p.m4a"
+      },
+      {
+        "name": "Funtan Syounendan (Japanese Ver.) [Japanese Ver.]",
+        "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/d4/14/8c/d4148c2a-2c3f-d415-ebac-8b9a19e885cf/mzaf_16902050396487276049.plus.aac.p.m4a"
       }
     ]
   },
