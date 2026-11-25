@@ -2666,34 +2666,6 @@
     ]
   },
   {
-    "id": "883131212",
-    "title": "NO MORE DREAM -Japanese Ver.- (通常盤)",
-    "year": 2014,
-    "artist": "BTS",
-    "type": "grupo",
-    "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music6/v4/72/fe/ec/72feec5d-f6d2-c4b6-3472-29818344c700/PCCA_04028_itunes.png/600x600bb.jpg",
-    "link": "https://music.apple.com/us/album/no-more-dream-japanese-ver-%E9%80%9A%E5%B8%B8%E7%9B%A4-single/883131212?uo=4",
-    "songs": [
-      "No More Dream -Japanese Ver.- (Japanese Ver.)",
-      "Shingeki no Boudan -Japanese Ver.- (Japanese Ver.)",
-      "Iine!"
-    ],
-    "tracks": [
-      {
-        "name": "No More Dream -Japanese Ver.- (Japanese Ver.)",
-        "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/05/7d/0a/057d0a27-1852-bec6-dcf0-04d5c32994ae/mzaf_9689315766750981809.plus.aac.p.m4a"
-      },
-      {
-        "name": "Shingeki no Boudan -Japanese Ver.- (Japanese Ver.)",
-        "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/49/c2/3f/49c23fa7-4276-9507-611c-813a051bc19c/mzaf_195115330781416797.plus.aac.p.m4a"
-      },
-      {
-        "name": "Iine!",
-        "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/9f/cf/69/9fcf692f-d662-22fe-1244-2924c1fc761d/mzaf_12717196544523953956.plus.aac.p.m4a"
-      }
-    ]
-  },
-  {
     "id": "939532822",
     "title": "Danger -Japanese Ver.- (通常盤)",
     "year": 2014,
@@ -2746,6 +2718,34 @@
       {
         "name": "Just One Day -Japanese Ver.- (Japanese Ver.)",
         "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/3d/7b/d8/3d7bd8fe-b952-1952-a67b-f466216a12ef/mzaf_7903785847215515517.plus.aac.p.m4a"
+      }
+    ]
+  },
+  {
+    "id": "883131212",
+    "title": "NO MORE DREAM -Japanese Ver.- (通常盤)",
+    "year": 2014,
+    "artist": "BTS",
+    "type": "grupo",
+    "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music6/v4/72/fe/ec/72feec5d-f6d2-c4b6-3472-29818344c700/PCCA_04028_itunes.png/600x600bb.jpg",
+    "link": "https://music.apple.com/us/album/no-more-dream-japanese-ver-%E9%80%9A%E5%B8%B8%E7%9B%A4-single/883131212?uo=4",
+    "songs": [
+      "No More Dream -Japanese Ver.- (Japanese Ver.)",
+      "Shingeki no Boudan -Japanese Ver.- (Japanese Ver.)",
+      "Iine!"
+    ],
+    "tracks": [
+      {
+        "name": "No More Dream -Japanese Ver.- (Japanese Ver.)",
+        "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/05/7d/0a/057d0a27-1852-bec6-dcf0-04d5c32994ae/mzaf_9689315766750981809.plus.aac.p.m4a"
+      },
+      {
+        "name": "Shingeki no Boudan -Japanese Ver.- (Japanese Ver.)",
+        "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/49/c2/3f/49c23fa7-4276-9507-611c-813a051bc19c/mzaf_195115330781416797.plus.aac.p.m4a"
+      },
+      {
+        "name": "Iine!",
+        "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/9f/cf/69/9fcf692f-d662-22fe-1244-2924c1fc761d/mzaf_12717196544523953956.plus.aac.p.m4a"
       }
     ]
   },
